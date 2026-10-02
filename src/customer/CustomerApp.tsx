@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import type { FormEvent } from 'react';
 import { useCustomerHub } from './useCustomerHub';
+import OrderAhead from './OrderAhead';
 import './customer.css';
 
 function Flower({ className = '' }: { className?: string }) {
@@ -101,11 +102,7 @@ export default function CustomerApp() {
                 {offer.status === 'approved' && <><button className="offer-button" onClick={() => redeemOffer(offer.id)} disabled={busy !== null}>{busy === `offer:${offer.id}` ? 'Redeeming…' : 'Redeem offer (demo)'}<span aria-hidden="true">↗</span></button><p className="input-hint">Simulated redemption. No payment or stamps added.</p></>}
               </article>)}
           </section>
-          <section className="order-card" aria-labelledby="order-title">
-            <div><p className="eyebrow">Something to look forward to</p><h2 id="order-title">Your next sweet stop.</h2><p>Send Grandma your order before you visit.</p></div>
-            {visibleHub.order_form_url ? <a className="primary-button" href={visibleHub.order_form_url} target="_blank" rel="noopener noreferrer">Order ahead<span aria-hidden="true">↗</span></a>
-              : <div className="order-unavailable"><span>Order ahead · coming soon</span><p>The order form hasn’t been connected yet.</p></div>}
-          </section>
+          <OrderAhead key={visibleHub.customer.id} hub={visibleHub} onPlaced={refresh} />
         </>}
       </>}
 

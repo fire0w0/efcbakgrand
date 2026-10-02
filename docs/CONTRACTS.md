@@ -1,10 +1,12 @@
-# Shared contracts — frozen at commit-0
+# Shared contracts
+
+October 2 update: the user authorized a built-in order-ahead form and a dashboard Orders tab, superseding the original Google Form and developer ownership restrictions for this change. Existing reward and offer behavior remains compatible.
 
 Assumptions: CAD; one local server; synthetic customer data; fixed demo clock October 2, 2026 at 6:30 PM Toronto; no authentication; all three developers approve shared changes. This file is the **only authored definition of shared shapes**. The TypeScript block generates `src/shared/contracts.ts`; do not edit the generated file. Examples, fixtures, and seed JSON are instances, not competing definitions.
 
 ## Canonical types and database schema
 
-The database is one JSON document with four table arrays, exactly `Database` below. No SQL server, ORM, migrations, or cloud account. Runtime storage is `DATA_FILE`; the committed seed is immutable. This is deliberate demo storage, not a production database.
+The database is one JSON document with four original table arrays and an optional preorders array, exactly `Database` below. A missing preorders array means no preorders, so existing runtime files and the immutable seed remain compatible. Runtime storage is `DATA_FILE`. This is deliberate demo storage, not a production database.
 
 <!-- TYPES:START -->
 ```typescript
@@ -37,6 +39,33 @@ export interface Order {
   total_cents: Cents;
   created_at: ISODateTime;
 }
+export type PreorderStatus = 'scheduled' | 'collected' | 'cancelled';
+export interface Preorder extends Order {
+  request_id: ID;
+  pickup_name: string;
+  pickup_at: ISODateTime;
+  note: string;
+  status: PreorderStatus;
+  collected_at: ISODateTime | null;
+}
+export interface PreorderRequest {
+  request_id: ID;
+  pickup_name: string;
+  pickup_at: ISODateTime;
+  note: string;
+  items: { menu_item_id: ID; quantity: number; }[];
+}
+export interface PreorderResponse { preorder: Preorder; }
+export interface OrderEntry extends Order {
+  customer_name: string;
+  phone: string;
+  pickup_name: string;
+  pickup_at: ISODateTime;
+  note: string;
+  status: PreorderStatus;
+  source: 'history' | 'order_ahead';
+}
+export interface OrderListResponse { orders: OrderEntry[]; as_of: ISODateTime; }
 export interface Offer {
   id: ID;
   customer_id: ID;
@@ -50,6 +79,7 @@ export interface Database {
   customers: Customer[];
   orders: Order[];
   offers: Offer[];
+  preorders?: Preorder[];
 }
 export interface CustomerSummary extends Customer {
   visits: number;
@@ -80,6 +110,8 @@ export interface HubResponse {
   reward_target: number;
   order_form_url: string | null;
   offers: Offer[];
+  preorders: Preorder[];
+  as_of: ISODateTime;
 }
 export interface JoinRequest { phone: string; }
 export interface JoinResponse { customer: Customer; created: boolean; }
@@ -133,10 +165,20 @@ Base `/api`, same origin, JSON request and response, no cookies or auth headers.
 | PATCH `/offers/:id` | `OfferEditRequest` | 200 `OfferResponse` | 400 length/body, 404, 409 not draft |
 | POST `/offers/:id/approve` | `EmptyRequest` | 200 `OfferResponse` | 400, 404, 409 redeemed |
 | POST `/offers/:id/redeem` | `EmptyRequest` | 200 `OfferResponse` | 400, 404, 409 draft |
+| GET `/orders` | none | 200 `OrderListResponse` | none |
+| POST `/customers/:id/preorders` | `PreorderRequest` | 201 new / 200 retry `PreorderResponse` | 400, 404, 409 changed retry |
+| POST `/preorders/:id/collect` | `EmptyRequest` | 200 `PreorderResponse` | 400, 404, 409 cancelled |
+| POST `/preorders/:id/cancel` | `EmptyRequest` | 200 `PreorderResponse` | 400, 404, 409 collected |
 
 All failures return `ApiError`. Codes map to HTTP 400 `VALIDATION_ERROR`, 404 `NOT_FOUND`, 409 `CONFLICT`, 501 `NOT_IMPLEMENTED`, or 500 `INTERNAL_ERROR`. Commit-0 write stubs intentionally return 501 for all bodies; Dev 1 replaces them with validation and the above behavior. The 501 result is not a completed retention loop.
 
 ### Route semantics
+
+- Built-in order ahead replaces the external form. `order_form_url` remains for backward compatibility but is not used by the current hub. Customers choose menu quantities, a pickup name and time, and an optional note. Payment is at pickup; no online payment is taken.
+- Preorder bodies contain exactly the documented keys. `request_id` is a client-generated UUID retained across uncertain retries. Matching retries return the same order; reuse with different customer or content returns 409. A retry still returns its original order after the pickup time passes. Names are trimmed 1–80 characters, notes trimmed 0–300. Items are unique known menu IDs, at least one and no more than the menu count, with integer quantities 1–20. The server snapshots current menu prices and calculates totals; clients cannot send prices or totals.
+- Pickup is a UTC ISO timestamp, between 15 minutes and 7 days after `as_of`, inclusive. This demo uses `DEMO_NOW` consistently; both screens label the demo clock and show pickup times in America/Toronto. This is a requested time, not a capacity reservation or business-hours guarantee.
+- Preorders transition from scheduled to collected or cancelled. Repeating the same terminal action is idempotent; switching terminal states is 409. Collection records exactly one historical Order with the preorder ID and collection time. Scheduled/cancelled preorders do not count as visits or spend. Stamps and offer redemption remain separate actions; no recovery revenue is inferred.
+- The hub includes only that customer's preorders, newest first. The dashboard `/orders` includes all preorders and historical orders, without duplicating collected preorders. Historical orders are returned as collected, with their original time as pickup time and empty note. Upcoming shows scheduled pickups (including overdue pickups clearly labelled); Past shows collected/cancelled orders. Both views support refetch/polling to show new submissions and status changes.
 
 - Customer list defaults: `sort=name&direction=asc`; no lapsed filter. Favorite item sorts by item name. Null values always sort last, either direction. Tie break is ID ascending. Detail orders and offers sort newest first. No search parameter; Dev 2 may filter the small returned list locally.
 - Join normalizes phone and returns the same record for repeat entry. New customer: name `New friend`, stamps 0, joined_at `as_of`, no orders. UI remembers ID in localStorage key `bakeria.customerId`. Identity is demo-only; the URL/localStorage value is not authorization.

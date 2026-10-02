@@ -28,6 +28,33 @@ export interface Order {
   total_cents: Cents;
   created_at: ISODateTime;
 }
+export type PreorderStatus = 'scheduled' | 'collected' | 'cancelled';
+export interface Preorder extends Order {
+  request_id: ID;
+  pickup_name: string;
+  pickup_at: ISODateTime;
+  note: string;
+  status: PreorderStatus;
+  collected_at: ISODateTime | null;
+}
+export interface PreorderRequest {
+  request_id: ID;
+  pickup_name: string;
+  pickup_at: ISODateTime;
+  note: string;
+  items: { menu_item_id: ID; quantity: number; }[];
+}
+export interface PreorderResponse { preorder: Preorder; }
+export interface OrderEntry extends Order {
+  customer_name: string;
+  phone: string;
+  pickup_name: string;
+  pickup_at: ISODateTime;
+  note: string;
+  status: PreorderStatus;
+  source: 'history' | 'order_ahead';
+}
+export interface OrderListResponse { orders: OrderEntry[]; as_of: ISODateTime; }
 export interface Offer {
   id: ID;
   customer_id: ID;
@@ -41,6 +68,7 @@ export interface Database {
   customers: Customer[];
   orders: Order[];
   offers: Offer[];
+  preorders?: Preorder[];
 }
 export interface CustomerSummary extends Customer {
   visits: number;
@@ -71,6 +99,8 @@ export interface HubResponse {
   reward_target: number;
   order_form_url: string | null;
   offers: Offer[];
+  preorders: Preorder[];
+  as_of: ISODateTime;
 }
 export interface JoinRequest { phone: string; }
 export interface JoinResponse { customer: Customer; created: boolean; }

@@ -1,12 +1,13 @@
 import express from 'express';
 import { randomUUID } from 'node:crypto';
 import type { ErrorRequestHandler } from 'express';
-import type { ApiError, ConfigResponse, CustomerDetailResponse, CustomerListResponse, Database, HealthResponse, HubResponse, MenuResponse, JoinResponse, StampResponse, RewardRedeemResponse, OfferResponse, Offer } from '../src/shared/contracts';
+import type { ApiError, ConfigResponse, CustomerDetailResponse, CustomerListResponse, Database, HealthResponse, HubResponse, MenuResponse, JoinResponse, StampResponse, RewardRedeemResponse, OfferResponse, Offer, OrderListResponse, PreorderResponse } from '../src/shared/contracts';
 import { config } from './config';
 import { metrics, summaries } from './domain';
 import { generateOffer } from './offers';
 import { readSeed } from './store';
 import { conflict, HttpError, invalid, missing, normalizePhone, objectBody, offerMessage } from './validation';
+import { finishPreorder, orderEntries, placePreorder } from './preorders';
 
 const templateIds = new Set(readSeed().offers.map(offer => offer.id));
 
@@ -80,11 +81,29 @@ export function createApp(readSource: () => Database, options: AppOptions = {}) 
     const customer = db.customers.find(c => c.id === req.params.id);
     if (!customer) return res.status(404).json({ error: { code: 'NOT_FOUND', message: 'Customer not found' } } satisfies ApiError);
     return res.json({ customer, reward_target: 10, order_form_url: config.orderFormUrl,
+      as_of: config.demoNow,
+      preorders: (db.preorders ?? []).filter(order => order.customer_id === customer.id)
+        .sort((a, b) => b.created_at.localeCompare(a.created_at) || b.id.localeCompare(a.id)),
       offers: db.offers.filter(o => o.customer_id === customer.id && o.status !== 'draft')
         .sort((a, b) => b.created_at.localeCompare(a.created_at)),
     } satisfies HubResponse);
   });
   app.get('/api/metrics', (_req, res) => res.json(metrics(read(), config.demoNow)));
+  app.get('/api/orders', (_req, res) => res.json({ orders: orderEntries(read()), as_of: config.demoNow } satisfies OrderListResponse));
+  app.post('/api/customers/:id/preorders', (req, res) => {
+    const result = mutate(db => placePreorder(db, req.params.id, req.body));
+    res.status(result.created ? 201 : 200).json({ preorder: result.preorder } satisfies PreorderResponse);
+  });
+  app.post('/api/preorders/:id/collect', (req, res) => {
+    objectBody(req.body, []);
+    const preorder = mutate(db => finishPreorder(db, req.params.id, 'collected'));
+    res.json({ preorder } satisfies PreorderResponse);
+  });
+  app.post('/api/preorders/:id/cancel', (req, res) => {
+    objectBody(req.body, []);
+    const preorder = mutate(db => finishPreorder(db, req.params.id, 'cancelled'));
+    res.json({ preorder } satisfies PreorderResponse);
+  });
   app.post('/api/hub/join', (req, res) => {
     const phone = normalizePhone(objectBody(req.body, ['phone']).phone);
     const result = mutate(db => {

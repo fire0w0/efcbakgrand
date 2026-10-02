@@ -1,0 +1,36 @@
+{
+  "name": "bakeria-friends-forever",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20.18.0"
+  },
+  "scripts": {
+    "dev": "tsx watch server/index.ts",
+    "start": "tsx server/index.ts --production",
+    "contracts:generate": "node scripts/contracts.mjs",
+    "contracts:check": "node scripts/contracts.mjs --check",
+    "seed:generate": "tsx scripts/generate-seed.ts",
+    "seed:reset": "tsx scripts/reset-data.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "tsx --test tests/scaffold.test.ts",
+    "test:backend": "node scripts/test-backend.mjs",
+    "check": "npm run contracts:check && npm run typecheck && npm test",
+    "build": "npm run check && vite build"
+  },
+  "dependencies": {
+    "express": "5.2.1",
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
+  },
+  "devDependencies": {
+    "@types/express": "5.0.6",
+    "@types/node": "20.19.43",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "tsx": "4.23.15",
+    "typescript": "5.9.3",
+    "vite": "6.4.3"
+  }
+}

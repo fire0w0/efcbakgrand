@@ -1,0 +1,5775 @@
+{
+  "menu_items": [
+    {
+      "id": "menu_strawberry",
+      "name": "Strawberry Cloud Parfait",
+      "price_cents": 750
+    },
+    {
+      "id": "menu_mango",
+      "name": "Mango Sunshine Parfait",
+      "price_cents": 800
+    },
+    {
+      "id": "menu_chocolate",
+      "name": "Chocolate Hug Parfait",
+      "price_cents": 850
+    },
+    {
+      "id": "menu_vanilla",
+      "name": "Vanilla Berry Parfait",
+      "price_cents": 700
+    },
+    {
+      "id": "menu_coffee",
+      "name": "Grandma’s Coffee",
+      "price_cents": 300
+    }
+  ],
+  "customers": [
+    {
+      "id": "cus_001",
+      "name": "Ava Martin",
+      "phone": "+15195550101",
+      "joined_at": "2026-07-15T22:30:00.000Z",
+      "stamps": 0
+    },
+    {
+      "id": "cus_002",
+      "name": "Noah Wilson",
+      "phone": "+15195550102",
+      "joined_at": "2026-07-14T22:30:00.000Z",
+      "stamps": 1
+    },
+    {
+      "id": "cus_003",
+      "name": "Olivia Brown",
+      "phone": "+15195550103",
+      "joined_at": "2026-07-13T22:30:00.000Z",
+      "stamps": 2
+    },
+    {
+      "id": "cus_004",
+      "name": "Liam Roy",
+      "phone": "+15195550104",
+      "joined_at": "2026-07-12T22:30:00.000Z",
+      "stamps": 3
+    },
+    {
+      "id": "cus_005",
+      "name": "Emma Tremblay",
+      "phone": "+15195550105",
+      "joined_at": "2026-07-11T22:30:00.000Z",
+      "stamps": 4
+    },
+    {
+      "id": "cus_006",
+      "name": "William Lee",
+      "phone": "+15195550106",
+      "joined_at": "2026-07-10T22:30:00.000Z",
+      "stamps": 5
+    },
+    {
+      "id": "cus_007",
+      "name": "Charlotte Wong",
+      "phone": "+15195550107",
+      "joined_at": "2026-07-15T22:30:00.000Z",
+      "stamps": 6
+    },
+    {
+      "id": "cus_008",
+      "name": "Benjamin Singh",
+      "phone": "+15195550108",
+      "joined_at": "2026-07-14T22:30:00.000Z",
+      "stamps": 7
+    },
+    {
+      "id": "cus_009",
+      "name": "Amelia Chen",
+      "phone": "+15195550109",
+      "joined_at": "2026-07-13T22:30:00.000Z",
+      "stamps": 8
+    },
+    {
+      "id": "cus_010",
+      "name": "Lucas Dubois",
+      "phone": "+15195550110",
+      "joined_at": "2026-07-12T22:30:00.000Z",
+      "stamps": 9
+    },
+    {
+      "id": "cus_011",
+      "name": "Sophia Ahmed",
+      "phone": "+15195550111",
+      "joined_at": "2026-07-11T22:30:00.000Z",
+      "stamps": 0
+    },
+    {
+      "id": "cus_012",
+      "name": "James Thompson",
+      "phone": "+15195550112",
+      "joined_at": "2026-07-10T22:30:00.000Z",
+      "stamps": 1
+    },
+    {
+      "id": "cus_013",
+      "name": "Mia Garcia",
+      "phone": "+15195550113",
+      "joined_at": "2026-07-15T22:30:00.000Z",
+      "stamps": 2
+    },
+    {
+      "id": "cus_014",
+      "name": "Henry Clarke",
+      "phone": "+15195550114",
+      "joined_at": "2026-07-14T22:30:00.000Z",
+      "stamps": 3
+    },
+    {
+      "id": "cus_015",
+      "name": "Isla Nguyen",
+      "phone": "+15195550115",
+      "joined_at": "2026-07-13T22:30:00.000Z",
+      "stamps": 4
+    },
+    {
+      "id": "cus_016",
+      "name": "Theodore Scott",
+      "phone": "+15195550116",
+      "joined_at": "2026-07-12T22:30:00.000Z",
+      "stamps": 5
+    },
+    {
+      "id": "cus_017",
+      "name": "Evelyn Lewis",
+      "phone": "+15195550117",
+      "joined_at": "2026-07-11T22:30:00.000Z",
+      "stamps": 6
+    },
+    {
+      "id": "cus_018",
+      "name": "Jack Robinson",
+      "phone": "+15195550118",
+      "joined_at": "2026-07-10T22:30:00.000Z",
+      "stamps": 7
+    },
+    {
+      "id": "cus_019",
+      "name": "Harper Young",
+      "phone": "+15195550119",
+      "joined_at": "2026-07-15T22:30:00.000Z",
+      "stamps": 8
+    },
+    {
+      "id": "cus_020",
+      "name": "Leo Walker",
+      "phone": "+15195550120",
+      "joined_at": "2026-07-14T22:30:00.000Z",
+      "stamps": 9
+    },
+    {
+      "id": "cus_021",
+      "name": "Aria Hall",
+      "phone": "+15195550121",
+      "joined_at": "2026-07-13T22:30:00.000Z",
+      "stamps": 0
+    },
+    {
+      "id": "cus_022",
+      "name": "Owen Allen",
+      "phone": "+15195550122",
+      "joined_at": "2026-07-12T22:30:00.000Z",
+      "stamps": 1
+    },
+    {
+      "id": "cus_023",
+      "name": "Ella Wright",
+      "phone": "+15195550123",
+      "joined_at": "2026-07-11T22:30:00.000Z",
+      "stamps": 2
+    },
+    {
+      "id": "cus_024",
+      "name": "Ethan King",
+      "phone": "+15195550124",
+      "joined_at": "2026-07-10T22:30:00.000Z",
+      "stamps": 3
+    },
+    {
+      "id": "cus_025",
+      "name": "Maya Patel",
+      "phone": "+15195550125",
+      "joined_at": "2026-07-15T22:30:00.000Z",
+      "stamps": 9
+    },
+    {
+      "id": "cus_026",
+      "name": "Daniel Brooks",
+      "phone": "+15195550126",
+      "joined_at": "2026-07-14T22:30:00.000Z",
+      "stamps": 5
+    },
+    {
+      "id": "cus_027",
+      "name": "Sofia Rossi",
+      "phone": "+15195550127",
+      "joined_at": "2026-07-15T22:30:00.000Z",
+      "stamps": 6
+    },
+    {
+      "id": "cus_028",
+      "name": "Eli Campbell",
+      "phone": "+15195550128",
+      "joined_at": "2026-07-14T22:30:00.000Z",
+      "stamps": 7
+    },
+    {
+      "id": "cus_029",
+      "name": "Grace Park",
+      "phone": "+15195550129",
+      "joined_at": "2026-07-09T22:30:00.000Z",
+      "stamps": 8
+    },
+    {
+      "id": "cus_030",
+      "name": "Samuel Morgan",
+      "phone": "+15195550130",
+      "joined_at": "2026-07-09T22:30:00.000Z",
+      "stamps": 9
+    },
+    {
+      "id": "cus_031",
+      "name": "Chloe Adams",
+      "phone": "+15195550131",
+      "joined_at": "2026-08-04T22:30:00.000Z",
+      "stamps": 0
+    },
+    {
+      "id": "cus_032",
+      "name": "Mateo Rivera",
+      "phone": "+15195550132",
+      "joined_at": "2026-09-15T22:30:00.000Z",
+      "stamps": 1
+    },
+    {
+      "id": "cus_033",
+      "name": "Lily Evans",
+      "phone": "+15195550133",
+      "joined_at": "2026-08-02T22:30:00.000Z",
+      "stamps": 2
+    },
+    {
+      "id": "cus_034",
+      "name": "Adam Murphy",
+      "phone": "+15195550134",
+      "joined_at": "2026-09-13T22:30:00.000Z",
+      "stamps": 3
+    },
+    {
+      "id": "cus_035",
+      "name": "Nora Bell",
+      "phone": "+15195550135",
+      "joined_at": "2026-07-31T22:30:00.000Z",
+      "stamps": 4
+    },
+    {
+      "id": "cus_036",
+      "name": "Isaac Cooper",
+      "phone": "+15195550136",
+      "joined_at": "2026-09-11T22:30:00.000Z",
+      "stamps": 5
+    },
+    {
+      "id": "cus_037",
+      "name": "Zoey Richardson",
+      "phone": "+15195550137",
+      "joined_at": "2026-08-10T22:30:00.000Z",
+      "stamps": 6
+    },
+    {
+      "id": "cus_038",
+      "name": "Julian Cox",
+      "phone": "+15195550138",
+      "joined_at": "2026-09-09T22:30:00.000Z",
+      "stamps": 7
+    },
+    {
+      "id": "cus_039",
+      "name": "Layla Howard",
+      "phone": "+15195550139",
+      "joined_at": "2026-08-08T22:30:00.000Z",
+      "stamps": 8
+    },
+    {
+      "id": "cus_040",
+      "name": "Caleb Ward",
+      "phone": "+15195550140",
+      "joined_at": "2026-09-07T22:30:00.000Z",
+      "stamps": 9
+    },
+    {
+      "id": "cus_041",
+      "name": "Hannah Wood",
+      "phone": "+15195550141",
+      "joined_at": "2026-08-06T22:30:00.000Z",
+      "stamps": 0
+    },
+    {
+      "id": "cus_042",
+      "name": "Nathan Price",
+      "phone": "+15195550142",
+      "joined_at": "2026-09-25T22:30:00.000Z",
+      "stamps": 1
+    },
+    {
+      "id": "cus_043",
+      "name": "Violet Bennett",
+      "phone": "+15195550143",
+      "joined_at": "2026-08-04T22:30:00.000Z",
+      "stamps": 2
+    },
+    {
+      "id": "cus_044",
+      "name": "Aaron Gray",
+      "phone": "+15195550144",
+      "joined_at": "2026-09-23T22:30:00.000Z",
+      "stamps": 3
+    },
+    {
+      "id": "cus_045",
+      "name": "Stella James",
+      "phone": "+15195550145",
+      "joined_at": "2026-08-02T22:30:00.000Z",
+      "stamps": 4
+    },
+    {
+      "id": "cus_046",
+      "name": "Ryan Kelly",
+      "phone": "+15195550146",
+      "joined_at": "2026-09-21T22:30:00.000Z",
+      "stamps": 5
+    },
+    {
+      "id": "cus_047",
+      "name": "Lucy Green",
+      "phone": "+15195550147",
+      "joined_at": "2026-07-31T22:30:00.000Z",
+      "stamps": 6
+    },
+    {
+      "id": "cus_048",
+      "name": "David Ross",
+      "phone": "+15195550148",
+      "joined_at": "2026-09-19T22:30:00.000Z",
+      "stamps": 7
+    },
+    {
+      "id": "cus_049",
+      "name": "Alice Foster",
+      "phone": "+15195550149",
+      "joined_at": "2026-08-10T22:30:00.000Z",
+      "stamps": 8
+    },
+    {
+      "id": "cus_050",
+      "name": "Zachary Perry",
+      "phone": "+15195550150",
+      "joined_at": "2026-09-17T22:30:00.000Z",
+      "stamps": 9
+    }
+  ],
+  "orders": [
+    {
+      "id": "ord_00001",
+      "customer_id": "cus_001",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        }
+      ],
+      "total_cents": 750,
+      "created_at": "2026-07-16T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00002",
+      "customer_id": "cus_001",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1050,
+      "created_at": "2026-07-23T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00003",
+      "customer_id": "cus_001",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        }
+      ],
+      "total_cents": 750,
+      "created_at": "2026-07-30T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00004",
+      "customer_id": "cus_001",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        }
+      ],
+      "total_cents": 750,
+      "created_at": "2026-08-06T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00005",
+      "customer_id": "cus_001",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1100,
+      "created_at": "2026-08-13T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00006",
+      "customer_id": "cus_001",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        }
+      ],
+      "total_cents": 750,
+      "created_at": "2026-08-20T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00007",
+      "customer_id": "cus_001",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        }
+      ],
+      "total_cents": 750,
+      "created_at": "2026-08-27T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00008",
+      "customer_id": "cus_001",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1050,
+      "created_at": "2026-09-03T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00009",
+      "customer_id": "cus_001",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        }
+      ],
+      "total_cents": 750,
+      "created_at": "2026-09-10T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00010",
+      "customer_id": "cus_001",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        }
+      ],
+      "total_cents": 800,
+      "created_at": "2026-09-17T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00011",
+      "customer_id": "cus_001",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1050,
+      "created_at": "2026-09-24T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00012",
+      "customer_id": "cus_001",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        }
+      ],
+      "total_cents": 750,
+      "created_at": "2026-10-01T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00013",
+      "customer_id": "cus_002",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        }
+      ],
+      "total_cents": 800,
+      "created_at": "2026-07-15T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00014",
+      "customer_id": "cus_002",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1100,
+      "created_at": "2026-07-22T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00015",
+      "customer_id": "cus_002",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        }
+      ],
+      "total_cents": 800,
+      "created_at": "2026-07-29T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00016",
+      "customer_id": "cus_002",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        }
+      ],
+      "total_cents": 800,
+      "created_at": "2026-08-05T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00017",
+      "customer_id": "cus_002",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1150,
+      "created_at": "2026-08-12T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00018",
+      "customer_id": "cus_002",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        }
+      ],
+      "total_cents": 800,
+      "created_at": "2026-08-19T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00019",
+      "customer_id": "cus_002",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        }
+      ],
+      "total_cents": 800,
+      "created_at": "2026-08-26T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00020",
+      "customer_id": "cus_002",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1100,
+      "created_at": "2026-09-02T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00021",
+      "customer_id": "cus_002",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        }
+      ],
+      "total_cents": 800,
+      "created_at": "2026-09-09T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00022",
+      "customer_id": "cus_002",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        }
+      ],
+      "total_cents": 850,
+      "created_at": "2026-09-16T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00023",
+      "customer_id": "cus_002",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1100,
+      "created_at": "2026-09-23T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00024",
+      "customer_id": "cus_002",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        }
+      ],
+      "total_cents": 800,
+      "created_at": "2026-09-30T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00025",
+      "customer_id": "cus_003",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        }
+      ],
+      "total_cents": 850,
+      "created_at": "2026-07-14T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00026",
+      "customer_id": "cus_003",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1150,
+      "created_at": "2026-07-21T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00027",
+      "customer_id": "cus_003",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        }
+      ],
+      "total_cents": 850,
+      "created_at": "2026-07-28T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00028",
+      "customer_id": "cus_003",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        }
+      ],
+      "total_cents": 850,
+      "created_at": "2026-08-04T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00029",
+      "customer_id": "cus_003",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1000,
+      "created_at": "2026-08-11T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00030",
+      "customer_id": "cus_003",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        }
+      ],
+      "total_cents": 850,
+      "created_at": "2026-08-18T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00031",
+      "customer_id": "cus_003",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        }
+      ],
+      "total_cents": 850,
+      "created_at": "2026-08-25T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00032",
+      "customer_id": "cus_003",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1150,
+      "created_at": "2026-09-01T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00033",
+      "customer_id": "cus_003",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        }
+      ],
+      "total_cents": 850,
+      "created_at": "2026-09-08T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00034",
+      "customer_id": "cus_003",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        }
+      ],
+      "total_cents": 700,
+      "created_at": "2026-09-15T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00035",
+      "customer_id": "cus_003",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1150,
+      "created_at": "2026-09-22T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00036",
+      "customer_id": "cus_003",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        }
+      ],
+      "total_cents": 850,
+      "created_at": "2026-09-29T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00037",
+      "customer_id": "cus_004",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        }
+      ],
+      "total_cents": 700,
+      "created_at": "2026-07-13T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00038",
+      "customer_id": "cus_004",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1000,
+      "created_at": "2026-07-20T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00039",
+      "customer_id": "cus_004",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        }
+      ],
+      "total_cents": 700,
+      "created_at": "2026-07-27T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00040",
+      "customer_id": "cus_004",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        }
+      ],
+      "total_cents": 700,
+      "created_at": "2026-08-03T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00041",
+      "customer_id": "cus_004",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1050,
+      "created_at": "2026-08-10T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00042",
+      "customer_id": "cus_004",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        }
+      ],
+      "total_cents": 700,
+      "created_at": "2026-08-17T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00043",
+      "customer_id": "cus_004",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        }
+      ],
+      "total_cents": 700,
+      "created_at": "2026-08-24T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00044",
+      "customer_id": "cus_004",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1000,
+      "created_at": "2026-08-31T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00045",
+      "customer_id": "cus_004",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        }
+      ],
+      "total_cents": 700,
+      "created_at": "2026-09-07T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00046",
+      "customer_id": "cus_004",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        }
+      ],
+      "total_cents": 750,
+      "created_at": "2026-09-14T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00047",
+      "customer_id": "cus_004",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1000,
+      "created_at": "2026-09-21T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00048",
+      "customer_id": "cus_004",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        }
+      ],
+      "total_cents": 700,
+      "created_at": "2026-09-28T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00049",
+      "customer_id": "cus_005",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        }
+      ],
+      "total_cents": 750,
+      "created_at": "2026-07-12T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00050",
+      "customer_id": "cus_005",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1050,
+      "created_at": "2026-07-19T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00051",
+      "customer_id": "cus_005",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        }
+      ],
+      "total_cents": 750,
+      "created_at": "2026-07-26T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00052",
+      "customer_id": "cus_005",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        }
+      ],
+      "total_cents": 750,
+      "created_at": "2026-08-02T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00053",
+      "customer_id": "cus_005",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1100,
+      "created_at": "2026-08-09T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00054",
+      "customer_id": "cus_005",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        }
+      ],
+      "total_cents": 750,
+      "created_at": "2026-08-16T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00055",
+      "customer_id": "cus_005",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        }
+      ],
+      "total_cents": 750,
+      "created_at": "2026-08-23T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00056",
+      "customer_id": "cus_005",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1050,
+      "created_at": "2026-08-30T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00057",
+      "customer_id": "cus_005",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        }
+      ],
+      "total_cents": 750,
+      "created_at": "2026-09-06T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00058",
+      "customer_id": "cus_005",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        }
+      ],
+      "total_cents": 800,
+      "created_at": "2026-09-13T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00059",
+      "customer_id": "cus_005",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1050,
+      "created_at": "2026-09-20T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00060",
+      "customer_id": "cus_005",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        }
+      ],
+      "total_cents": 750,
+      "created_at": "2026-09-27T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00061",
+      "customer_id": "cus_006",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        }
+      ],
+      "total_cents": 800,
+      "created_at": "2026-07-11T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00062",
+      "customer_id": "cus_006",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1100,
+      "created_at": "2026-07-18T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00063",
+      "customer_id": "cus_006",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        }
+      ],
+      "total_cents": 800,
+      "created_at": "2026-07-25T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00064",
+      "customer_id": "cus_006",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        }
+      ],
+      "total_cents": 800,
+      "created_at": "2026-08-01T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00065",
+      "customer_id": "cus_006",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1150,
+      "created_at": "2026-08-08T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00066",
+      "customer_id": "cus_006",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        }
+      ],
+      "total_cents": 800,
+      "created_at": "2026-08-15T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00067",
+      "customer_id": "cus_006",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        }
+      ],
+      "total_cents": 800,
+      "created_at": "2026-08-22T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00068",
+      "customer_id": "cus_006",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1100,
+      "created_at": "2026-08-29T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00069",
+      "customer_id": "cus_006",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        }
+      ],
+      "total_cents": 800,
+      "created_at": "2026-09-05T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00070",
+      "customer_id": "cus_006",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        }
+      ],
+      "total_cents": 850,
+      "created_at": "2026-09-12T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00071",
+      "customer_id": "cus_006",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1100,
+      "created_at": "2026-09-19T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00072",
+      "customer_id": "cus_006",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        }
+      ],
+      "total_cents": 800,
+      "created_at": "2026-09-26T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00073",
+      "customer_id": "cus_007",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        }
+      ],
+      "total_cents": 850,
+      "created_at": "2026-07-16T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00074",
+      "customer_id": "cus_007",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1150,
+      "created_at": "2026-07-23T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00075",
+      "customer_id": "cus_007",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        }
+      ],
+      "total_cents": 850,
+      "created_at": "2026-07-30T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00076",
+      "customer_id": "cus_007",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        }
+      ],
+      "total_cents": 850,
+      "created_at": "2026-08-06T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00077",
+      "customer_id": "cus_007",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1000,
+      "created_at": "2026-08-13T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00078",
+      "customer_id": "cus_007",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        }
+      ],
+      "total_cents": 850,
+      "created_at": "2026-08-20T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00079",
+      "customer_id": "cus_007",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        }
+      ],
+      "total_cents": 850,
+      "created_at": "2026-08-27T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00080",
+      "customer_id": "cus_007",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1150,
+      "created_at": "2026-09-03T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00081",
+      "customer_id": "cus_007",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        }
+      ],
+      "total_cents": 850,
+      "created_at": "2026-09-10T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00082",
+      "customer_id": "cus_007",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        }
+      ],
+      "total_cents": 700,
+      "created_at": "2026-09-17T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00083",
+      "customer_id": "cus_007",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1150,
+      "created_at": "2026-09-24T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00084",
+      "customer_id": "cus_007",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        }
+      ],
+      "total_cents": 850,
+      "created_at": "2026-10-01T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00085",
+      "customer_id": "cus_008",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        }
+      ],
+      "total_cents": 700,
+      "created_at": "2026-07-15T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00086",
+      "customer_id": "cus_008",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1000,
+      "created_at": "2026-07-22T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00087",
+      "customer_id": "cus_008",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        }
+      ],
+      "total_cents": 700,
+      "created_at": "2026-07-29T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00088",
+      "customer_id": "cus_008",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        }
+      ],
+      "total_cents": 700,
+      "created_at": "2026-08-05T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00089",
+      "customer_id": "cus_008",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1050,
+      "created_at": "2026-08-12T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00090",
+      "customer_id": "cus_008",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        }
+      ],
+      "total_cents": 700,
+      "created_at": "2026-08-19T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00091",
+      "customer_id": "cus_008",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        }
+      ],
+      "total_cents": 700,
+      "created_at": "2026-08-26T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00092",
+      "customer_id": "cus_008",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1000,
+      "created_at": "2026-09-02T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00093",
+      "customer_id": "cus_008",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        }
+      ],
+      "total_cents": 700,
+      "created_at": "2026-09-09T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00094",
+      "customer_id": "cus_008",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        }
+      ],
+      "total_cents": 750,
+      "created_at": "2026-09-16T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00095",
+      "customer_id": "cus_008",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1000,
+      "created_at": "2026-09-23T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00096",
+      "customer_id": "cus_008",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        }
+      ],
+      "total_cents": 700,
+      "created_at": "2026-09-30T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00097",
+      "customer_id": "cus_009",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        }
+      ],
+      "total_cents": 750,
+      "created_at": "2026-07-14T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00098",
+      "customer_id": "cus_009",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1050,
+      "created_at": "2026-07-21T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00099",
+      "customer_id": "cus_009",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        }
+      ],
+      "total_cents": 750,
+      "created_at": "2026-07-28T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00100",
+      "customer_id": "cus_009",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        }
+      ],
+      "total_cents": 750,
+      "created_at": "2026-08-04T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00101",
+      "customer_id": "cus_009",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1100,
+      "created_at": "2026-08-11T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00102",
+      "customer_id": "cus_009",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        }
+      ],
+      "total_cents": 750,
+      "created_at": "2026-08-18T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00103",
+      "customer_id": "cus_009",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        }
+      ],
+      "total_cents": 750,
+      "created_at": "2026-08-25T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00104",
+      "customer_id": "cus_009",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1050,
+      "created_at": "2026-09-01T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00105",
+      "customer_id": "cus_009",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        }
+      ],
+      "total_cents": 750,
+      "created_at": "2026-09-08T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00106",
+      "customer_id": "cus_009",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        }
+      ],
+      "total_cents": 800,
+      "created_at": "2026-09-15T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00107",
+      "customer_id": "cus_009",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1050,
+      "created_at": "2026-09-22T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00108",
+      "customer_id": "cus_009",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        }
+      ],
+      "total_cents": 750,
+      "created_at": "2026-09-29T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00109",
+      "customer_id": "cus_010",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        }
+      ],
+      "total_cents": 800,
+      "created_at": "2026-07-13T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00110",
+      "customer_id": "cus_010",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1100,
+      "created_at": "2026-07-20T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00111",
+      "customer_id": "cus_010",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        }
+      ],
+      "total_cents": 800,
+      "created_at": "2026-07-27T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00112",
+      "customer_id": "cus_010",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        }
+      ],
+      "total_cents": 800,
+      "created_at": "2026-08-03T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00113",
+      "customer_id": "cus_010",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1150,
+      "created_at": "2026-08-10T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00114",
+      "customer_id": "cus_010",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        }
+      ],
+      "total_cents": 800,
+      "created_at": "2026-08-17T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00115",
+      "customer_id": "cus_010",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        }
+      ],
+      "total_cents": 800,
+      "created_at": "2026-08-24T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00116",
+      "customer_id": "cus_010",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1100,
+      "created_at": "2026-08-31T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00117",
+      "customer_id": "cus_010",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        }
+      ],
+      "total_cents": 800,
+      "created_at": "2026-09-07T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00118",
+      "customer_id": "cus_010",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        }
+      ],
+      "total_cents": 850,
+      "created_at": "2026-09-14T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00119",
+      "customer_id": "cus_010",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1100,
+      "created_at": "2026-09-21T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00120",
+      "customer_id": "cus_010",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        }
+      ],
+      "total_cents": 800,
+      "created_at": "2026-09-28T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00121",
+      "customer_id": "cus_011",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        }
+      ],
+      "total_cents": 850,
+      "created_at": "2026-07-12T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00122",
+      "customer_id": "cus_011",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1150,
+      "created_at": "2026-07-19T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00123",
+      "customer_id": "cus_011",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        }
+      ],
+      "total_cents": 850,
+      "created_at": "2026-07-26T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00124",
+      "customer_id": "cus_011",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        }
+      ],
+      "total_cents": 850,
+      "created_at": "2026-08-02T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00125",
+      "customer_id": "cus_011",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1000,
+      "created_at": "2026-08-09T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00126",
+      "customer_id": "cus_011",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        }
+      ],
+      "total_cents": 850,
+      "created_at": "2026-08-16T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00127",
+      "customer_id": "cus_011",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        }
+      ],
+      "total_cents": 850,
+      "created_at": "2026-08-23T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00128",
+      "customer_id": "cus_011",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1150,
+      "created_at": "2026-08-30T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00129",
+      "customer_id": "cus_011",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        }
+      ],
+      "total_cents": 850,
+      "created_at": "2026-09-06T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00130",
+      "customer_id": "cus_011",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        }
+      ],
+      "total_cents": 700,
+      "created_at": "2026-09-13T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00131",
+      "customer_id": "cus_011",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1150,
+      "created_at": "2026-09-20T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00132",
+      "customer_id": "cus_011",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        }
+      ],
+      "total_cents": 850,
+      "created_at": "2026-09-27T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00133",
+      "customer_id": "cus_012",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        }
+      ],
+      "total_cents": 700,
+      "created_at": "2026-07-11T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00134",
+      "customer_id": "cus_012",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1000,
+      "created_at": "2026-07-18T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00135",
+      "customer_id": "cus_012",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        }
+      ],
+      "total_cents": 700,
+      "created_at": "2026-07-25T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00136",
+      "customer_id": "cus_012",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        }
+      ],
+      "total_cents": 700,
+      "created_at": "2026-08-01T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00137",
+      "customer_id": "cus_012",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1050,
+      "created_at": "2026-08-08T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00138",
+      "customer_id": "cus_012",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        }
+      ],
+      "total_cents": 700,
+      "created_at": "2026-08-15T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00139",
+      "customer_id": "cus_012",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        }
+      ],
+      "total_cents": 700,
+      "created_at": "2026-08-22T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00140",
+      "customer_id": "cus_012",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1000,
+      "created_at": "2026-08-29T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00141",
+      "customer_id": "cus_012",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        }
+      ],
+      "total_cents": 700,
+      "created_at": "2026-09-05T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00142",
+      "customer_id": "cus_012",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        }
+      ],
+      "total_cents": 750,
+      "created_at": "2026-09-12T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00143",
+      "customer_id": "cus_012",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1000,
+      "created_at": "2026-09-19T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00144",
+      "customer_id": "cus_012",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        }
+      ],
+      "total_cents": 700,
+      "created_at": "2026-09-26T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00145",
+      "customer_id": "cus_013",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        }
+      ],
+      "total_cents": 750,
+      "created_at": "2026-07-16T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00146",
+      "customer_id": "cus_013",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1050,
+      "created_at": "2026-07-23T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00147",
+      "customer_id": "cus_013",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        }
+      ],
+      "total_cents": 750,
+      "created_at": "2026-07-30T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00148",
+      "customer_id": "cus_013",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        }
+      ],
+      "total_cents": 750,
+      "created_at": "2026-08-06T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00149",
+      "customer_id": "cus_013",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1100,
+      "created_at": "2026-08-13T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00150",
+      "customer_id": "cus_013",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        }
+      ],
+      "total_cents": 750,
+      "created_at": "2026-08-20T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00151",
+      "customer_id": "cus_013",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        }
+      ],
+      "total_cents": 750,
+      "created_at": "2026-08-27T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00152",
+      "customer_id": "cus_013",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1050,
+      "created_at": "2026-09-03T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00153",
+      "customer_id": "cus_013",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        }
+      ],
+      "total_cents": 750,
+      "created_at": "2026-09-10T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00154",
+      "customer_id": "cus_013",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        }
+      ],
+      "total_cents": 800,
+      "created_at": "2026-09-17T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00155",
+      "customer_id": "cus_013",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1050,
+      "created_at": "2026-09-24T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00156",
+      "customer_id": "cus_013",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        }
+      ],
+      "total_cents": 750,
+      "created_at": "2026-10-01T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00157",
+      "customer_id": "cus_014",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        }
+      ],
+      "total_cents": 800,
+      "created_at": "2026-07-15T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00158",
+      "customer_id": "cus_014",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1100,
+      "created_at": "2026-07-22T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00159",
+      "customer_id": "cus_014",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        }
+      ],
+      "total_cents": 800,
+      "created_at": "2026-07-29T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00160",
+      "customer_id": "cus_014",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        }
+      ],
+      "total_cents": 800,
+      "created_at": "2026-08-05T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00161",
+      "customer_id": "cus_014",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1150,
+      "created_at": "2026-08-12T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00162",
+      "customer_id": "cus_014",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        }
+      ],
+      "total_cents": 800,
+      "created_at": "2026-08-19T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00163",
+      "customer_id": "cus_014",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        }
+      ],
+      "total_cents": 800,
+      "created_at": "2026-08-26T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00164",
+      "customer_id": "cus_014",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1100,
+      "created_at": "2026-09-02T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00165",
+      "customer_id": "cus_014",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        }
+      ],
+      "total_cents": 800,
+      "created_at": "2026-09-09T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00166",
+      "customer_id": "cus_014",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        }
+      ],
+      "total_cents": 850,
+      "created_at": "2026-09-16T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00167",
+      "customer_id": "cus_014",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1100,
+      "created_at": "2026-09-23T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00168",
+      "customer_id": "cus_014",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        }
+      ],
+      "total_cents": 800,
+      "created_at": "2026-09-30T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00169",
+      "customer_id": "cus_015",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        }
+      ],
+      "total_cents": 850,
+      "created_at": "2026-07-14T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00170",
+      "customer_id": "cus_015",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1150,
+      "created_at": "2026-07-21T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00171",
+      "customer_id": "cus_015",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        }
+      ],
+      "total_cents": 850,
+      "created_at": "2026-07-28T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00172",
+      "customer_id": "cus_015",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        }
+      ],
+      "total_cents": 850,
+      "created_at": "2026-08-04T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00173",
+      "customer_id": "cus_015",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1000,
+      "created_at": "2026-08-11T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00174",
+      "customer_id": "cus_015",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        }
+      ],
+      "total_cents": 850,
+      "created_at": "2026-08-18T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00175",
+      "customer_id": "cus_015",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        }
+      ],
+      "total_cents": 850,
+      "created_at": "2026-08-25T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00176",
+      "customer_id": "cus_015",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1150,
+      "created_at": "2026-09-01T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00177",
+      "customer_id": "cus_015",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        }
+      ],
+      "total_cents": 850,
+      "created_at": "2026-09-08T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00178",
+      "customer_id": "cus_015",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        }
+      ],
+      "total_cents": 700,
+      "created_at": "2026-09-15T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00179",
+      "customer_id": "cus_015",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1150,
+      "created_at": "2026-09-22T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00180",
+      "customer_id": "cus_015",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        }
+      ],
+      "total_cents": 850,
+      "created_at": "2026-09-29T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00181",
+      "customer_id": "cus_016",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        }
+      ],
+      "total_cents": 700,
+      "created_at": "2026-07-13T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00182",
+      "customer_id": "cus_016",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1000,
+      "created_at": "2026-07-20T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00183",
+      "customer_id": "cus_016",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        }
+      ],
+      "total_cents": 700,
+      "created_at": "2026-07-27T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00184",
+      "customer_id": "cus_016",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        }
+      ],
+      "total_cents": 700,
+      "created_at": "2026-08-03T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00185",
+      "customer_id": "cus_016",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1050,
+      "created_at": "2026-08-10T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00186",
+      "customer_id": "cus_016",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        }
+      ],
+      "total_cents": 700,
+      "created_at": "2026-08-17T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00187",
+      "customer_id": "cus_016",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        }
+      ],
+      "total_cents": 700,
+      "created_at": "2026-08-24T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00188",
+      "customer_id": "cus_016",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1000,
+      "created_at": "2026-08-31T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00189",
+      "customer_id": "cus_016",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        }
+      ],
+      "total_cents": 700,
+      "created_at": "2026-09-07T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00190",
+      "customer_id": "cus_016",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        }
+      ],
+      "total_cents": 750,
+      "created_at": "2026-09-14T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00191",
+      "customer_id": "cus_016",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1000,
+      "created_at": "2026-09-21T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00192",
+      "customer_id": "cus_016",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        }
+      ],
+      "total_cents": 700,
+      "created_at": "2026-09-28T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00193",
+      "customer_id": "cus_017",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        }
+      ],
+      "total_cents": 750,
+      "created_at": "2026-07-12T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00194",
+      "customer_id": "cus_017",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1050,
+      "created_at": "2026-07-19T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00195",
+      "customer_id": "cus_017",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        }
+      ],
+      "total_cents": 750,
+      "created_at": "2026-07-26T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00196",
+      "customer_id": "cus_017",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        }
+      ],
+      "total_cents": 750,
+      "created_at": "2026-08-02T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00197",
+      "customer_id": "cus_017",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1100,
+      "created_at": "2026-08-09T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00198",
+      "customer_id": "cus_017",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        }
+      ],
+      "total_cents": 750,
+      "created_at": "2026-08-16T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00199",
+      "customer_id": "cus_017",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        }
+      ],
+      "total_cents": 750,
+      "created_at": "2026-08-23T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00200",
+      "customer_id": "cus_017",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1050,
+      "created_at": "2026-08-30T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00201",
+      "customer_id": "cus_017",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        }
+      ],
+      "total_cents": 750,
+      "created_at": "2026-09-06T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00202",
+      "customer_id": "cus_017",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        }
+      ],
+      "total_cents": 800,
+      "created_at": "2026-09-13T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00203",
+      "customer_id": "cus_017",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1050,
+      "created_at": "2026-09-20T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00204",
+      "customer_id": "cus_017",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        }
+      ],
+      "total_cents": 750,
+      "created_at": "2026-09-27T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00205",
+      "customer_id": "cus_018",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        }
+      ],
+      "total_cents": 800,
+      "created_at": "2026-07-11T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00206",
+      "customer_id": "cus_018",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1100,
+      "created_at": "2026-07-18T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00207",
+      "customer_id": "cus_018",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        }
+      ],
+      "total_cents": 800,
+      "created_at": "2026-07-25T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00208",
+      "customer_id": "cus_018",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        }
+      ],
+      "total_cents": 800,
+      "created_at": "2026-08-01T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00209",
+      "customer_id": "cus_018",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1150,
+      "created_at": "2026-08-08T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00210",
+      "customer_id": "cus_018",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        }
+      ],
+      "total_cents": 800,
+      "created_at": "2026-08-15T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00211",
+      "customer_id": "cus_018",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        }
+      ],
+      "total_cents": 800,
+      "created_at": "2026-08-22T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00212",
+      "customer_id": "cus_018",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1100,
+      "created_at": "2026-08-29T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00213",
+      "customer_id": "cus_018",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        }
+      ],
+      "total_cents": 800,
+      "created_at": "2026-09-05T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00214",
+      "customer_id": "cus_018",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        }
+      ],
+      "total_cents": 850,
+      "created_at": "2026-09-12T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00215",
+      "customer_id": "cus_018",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1100,
+      "created_at": "2026-09-19T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00216",
+      "customer_id": "cus_018",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        }
+      ],
+      "total_cents": 800,
+      "created_at": "2026-09-26T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00217",
+      "customer_id": "cus_019",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        }
+      ],
+      "total_cents": 850,
+      "created_at": "2026-07-16T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00218",
+      "customer_id": "cus_019",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1150,
+      "created_at": "2026-07-23T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00219",
+      "customer_id": "cus_019",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        }
+      ],
+      "total_cents": 850,
+      "created_at": "2026-07-30T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00220",
+      "customer_id": "cus_019",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        }
+      ],
+      "total_cents": 850,
+      "created_at": "2026-08-06T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00221",
+      "customer_id": "cus_019",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1000,
+      "created_at": "2026-08-13T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00222",
+      "customer_id": "cus_019",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        }
+      ],
+      "total_cents": 850,
+      "created_at": "2026-08-20T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00223",
+      "customer_id": "cus_019",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        }
+      ],
+      "total_cents": 850,
+      "created_at": "2026-08-27T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00224",
+      "customer_id": "cus_019",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1150,
+      "created_at": "2026-09-03T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00225",
+      "customer_id": "cus_019",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        }
+      ],
+      "total_cents": 850,
+      "created_at": "2026-09-10T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00226",
+      "customer_id": "cus_019",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        }
+      ],
+      "total_cents": 700,
+      "created_at": "2026-09-17T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00227",
+      "customer_id": "cus_019",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1150,
+      "created_at": "2026-09-24T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00228",
+      "customer_id": "cus_019",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        }
+      ],
+      "total_cents": 850,
+      "created_at": "2026-10-01T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00229",
+      "customer_id": "cus_020",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        }
+      ],
+      "total_cents": 700,
+      "created_at": "2026-07-15T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00230",
+      "customer_id": "cus_020",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1000,
+      "created_at": "2026-07-22T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00231",
+      "customer_id": "cus_020",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        }
+      ],
+      "total_cents": 700,
+      "created_at": "2026-07-29T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00232",
+      "customer_id": "cus_020",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        }
+      ],
+      "total_cents": 700,
+      "created_at": "2026-08-05T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00233",
+      "customer_id": "cus_020",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1050,
+      "created_at": "2026-08-12T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00234",
+      "customer_id": "cus_020",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        }
+      ],
+      "total_cents": 700,
+      "created_at": "2026-08-19T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00235",
+      "customer_id": "cus_020",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        }
+      ],
+      "total_cents": 700,
+      "created_at": "2026-08-26T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00236",
+      "customer_id": "cus_020",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1000,
+      "created_at": "2026-09-02T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00237",
+      "customer_id": "cus_020",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        }
+      ],
+      "total_cents": 700,
+      "created_at": "2026-09-09T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00238",
+      "customer_id": "cus_020",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        }
+      ],
+      "total_cents": 750,
+      "created_at": "2026-09-16T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00239",
+      "customer_id": "cus_020",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1000,
+      "created_at": "2026-09-23T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00240",
+      "customer_id": "cus_020",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        }
+      ],
+      "total_cents": 700,
+      "created_at": "2026-09-30T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00241",
+      "customer_id": "cus_021",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        }
+      ],
+      "total_cents": 750,
+      "created_at": "2026-07-14T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00242",
+      "customer_id": "cus_021",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1050,
+      "created_at": "2026-07-21T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00243",
+      "customer_id": "cus_021",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        }
+      ],
+      "total_cents": 750,
+      "created_at": "2026-07-28T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00244",
+      "customer_id": "cus_021",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        }
+      ],
+      "total_cents": 750,
+      "created_at": "2026-08-04T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00245",
+      "customer_id": "cus_021",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1100,
+      "created_at": "2026-08-11T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00246",
+      "customer_id": "cus_021",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        }
+      ],
+      "total_cents": 750,
+      "created_at": "2026-08-18T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00247",
+      "customer_id": "cus_021",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        }
+      ],
+      "total_cents": 750,
+      "created_at": "2026-08-25T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00248",
+      "customer_id": "cus_021",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1050,
+      "created_at": "2026-09-01T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00249",
+      "customer_id": "cus_021",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        }
+      ],
+      "total_cents": 750,
+      "created_at": "2026-09-08T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00250",
+      "customer_id": "cus_021",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        }
+      ],
+      "total_cents": 800,
+      "created_at": "2026-09-15T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00251",
+      "customer_id": "cus_021",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1050,
+      "created_at": "2026-09-22T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00252",
+      "customer_id": "cus_021",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        }
+      ],
+      "total_cents": 750,
+      "created_at": "2026-09-29T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00253",
+      "customer_id": "cus_022",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        }
+      ],
+      "total_cents": 800,
+      "created_at": "2026-07-13T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00254",
+      "customer_id": "cus_022",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1100,
+      "created_at": "2026-07-20T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00255",
+      "customer_id": "cus_022",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        }
+      ],
+      "total_cents": 800,
+      "created_at": "2026-07-27T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00256",
+      "customer_id": "cus_022",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        }
+      ],
+      "total_cents": 800,
+      "created_at": "2026-08-03T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00257",
+      "customer_id": "cus_022",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1150,
+      "created_at": "2026-08-10T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00258",
+      "customer_id": "cus_022",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        }
+      ],
+      "total_cents": 800,
+      "created_at": "2026-08-17T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00259",
+      "customer_id": "cus_022",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        }
+      ],
+      "total_cents": 800,
+      "created_at": "2026-08-24T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00260",
+      "customer_id": "cus_022",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1100,
+      "created_at": "2026-08-31T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00261",
+      "customer_id": "cus_022",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        }
+      ],
+      "total_cents": 800,
+      "created_at": "2026-09-07T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00262",
+      "customer_id": "cus_022",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        }
+      ],
+      "total_cents": 850,
+      "created_at": "2026-09-14T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00263",
+      "customer_id": "cus_022",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1100,
+      "created_at": "2026-09-21T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00264",
+      "customer_id": "cus_022",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        }
+      ],
+      "total_cents": 800,
+      "created_at": "2026-09-28T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00265",
+      "customer_id": "cus_023",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        }
+      ],
+      "total_cents": 850,
+      "created_at": "2026-07-12T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00266",
+      "customer_id": "cus_023",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1150,
+      "created_at": "2026-07-19T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00267",
+      "customer_id": "cus_023",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        }
+      ],
+      "total_cents": 850,
+      "created_at": "2026-07-26T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00268",
+      "customer_id": "cus_023",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        }
+      ],
+      "total_cents": 850,
+      "created_at": "2026-08-02T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00269",
+      "customer_id": "cus_023",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1000,
+      "created_at": "2026-08-09T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00270",
+      "customer_id": "cus_023",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        }
+      ],
+      "total_cents": 850,
+      "created_at": "2026-08-16T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00271",
+      "customer_id": "cus_023",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        }
+      ],
+      "total_cents": 850,
+      "created_at": "2026-08-23T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00272",
+      "customer_id": "cus_023",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1150,
+      "created_at": "2026-08-30T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00273",
+      "customer_id": "cus_023",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        }
+      ],
+      "total_cents": 850,
+      "created_at": "2026-09-06T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00274",
+      "customer_id": "cus_023",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        }
+      ],
+      "total_cents": 700,
+      "created_at": "2026-09-13T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00275",
+      "customer_id": "cus_023",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1150,
+      "created_at": "2026-09-20T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00276",
+      "customer_id": "cus_023",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        }
+      ],
+      "total_cents": 850,
+      "created_at": "2026-09-27T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00277",
+      "customer_id": "cus_024",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        }
+      ],
+      "total_cents": 700,
+      "created_at": "2026-07-11T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00278",
+      "customer_id": "cus_024",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1000,
+      "created_at": "2026-07-18T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00279",
+      "customer_id": "cus_024",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        }
+      ],
+      "total_cents": 700,
+      "created_at": "2026-07-25T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00280",
+      "customer_id": "cus_024",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        }
+      ],
+      "total_cents": 700,
+      "created_at": "2026-08-01T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00281",
+      "customer_id": "cus_024",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1050,
+      "created_at": "2026-08-08T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00282",
+      "customer_id": "cus_024",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        }
+      ],
+      "total_cents": 700,
+      "created_at": "2026-08-15T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00283",
+      "customer_id": "cus_024",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        }
+      ],
+      "total_cents": 700,
+      "created_at": "2026-08-22T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00284",
+      "customer_id": "cus_024",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1000,
+      "created_at": "2026-08-29T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00285",
+      "customer_id": "cus_024",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        }
+      ],
+      "total_cents": 700,
+      "created_at": "2026-09-05T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00286",
+      "customer_id": "cus_024",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        }
+      ],
+      "total_cents": 750,
+      "created_at": "2026-09-12T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00287",
+      "customer_id": "cus_024",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1000,
+      "created_at": "2026-09-19T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00288",
+      "customer_id": "cus_024",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        }
+      ],
+      "total_cents": 700,
+      "created_at": "2026-09-26T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00289",
+      "customer_id": "cus_025",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        }
+      ],
+      "total_cents": 750,
+      "created_at": "2026-07-16T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00290",
+      "customer_id": "cus_025",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1050,
+      "created_at": "2026-07-23T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00291",
+      "customer_id": "cus_025",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        }
+      ],
+      "total_cents": 750,
+      "created_at": "2026-07-30T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00292",
+      "customer_id": "cus_025",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        }
+      ],
+      "total_cents": 750,
+      "created_at": "2026-08-06T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00293",
+      "customer_id": "cus_025",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1100,
+      "created_at": "2026-08-13T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00294",
+      "customer_id": "cus_025",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        }
+      ],
+      "total_cents": 750,
+      "created_at": "2026-08-20T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00295",
+      "customer_id": "cus_025",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        }
+      ],
+      "total_cents": 750,
+      "created_at": "2026-08-27T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00296",
+      "customer_id": "cus_025",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1050,
+      "created_at": "2026-09-03T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00297",
+      "customer_id": "cus_025",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        }
+      ],
+      "total_cents": 750,
+      "created_at": "2026-09-10T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00298",
+      "customer_id": "cus_026",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        }
+      ],
+      "total_cents": 800,
+      "created_at": "2026-07-15T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00299",
+      "customer_id": "cus_026",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1100,
+      "created_at": "2026-07-22T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00300",
+      "customer_id": "cus_026",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        }
+      ],
+      "total_cents": 800,
+      "created_at": "2026-07-29T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00301",
+      "customer_id": "cus_026",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        }
+      ],
+      "total_cents": 800,
+      "created_at": "2026-08-05T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00302",
+      "customer_id": "cus_026",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1150,
+      "created_at": "2026-08-12T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00303",
+      "customer_id": "cus_026",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        }
+      ],
+      "total_cents": 800,
+      "created_at": "2026-08-19T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00304",
+      "customer_id": "cus_026",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        }
+      ],
+      "total_cents": 800,
+      "created_at": "2026-08-26T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00305",
+      "customer_id": "cus_026",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1100,
+      "created_at": "2026-09-02T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00306",
+      "customer_id": "cus_026",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        }
+      ],
+      "total_cents": 800,
+      "created_at": "2026-09-09T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00307",
+      "customer_id": "cus_027",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        }
+      ],
+      "total_cents": 850,
+      "created_at": "2026-07-16T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00308",
+      "customer_id": "cus_027",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1150,
+      "created_at": "2026-07-23T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00309",
+      "customer_id": "cus_027",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        }
+      ],
+      "total_cents": 850,
+      "created_at": "2026-07-30T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00310",
+      "customer_id": "cus_027",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        }
+      ],
+      "total_cents": 850,
+      "created_at": "2026-08-06T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00311",
+      "customer_id": "cus_027",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1000,
+      "created_at": "2026-08-13T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00312",
+      "customer_id": "cus_027",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        }
+      ],
+      "total_cents": 850,
+      "created_at": "2026-08-20T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00313",
+      "customer_id": "cus_027",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        }
+      ],
+      "total_cents": 850,
+      "created_at": "2026-08-27T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00314",
+      "customer_id": "cus_027",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1150,
+      "created_at": "2026-09-03T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00315",
+      "customer_id": "cus_027",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        }
+      ],
+      "total_cents": 850,
+      "created_at": "2026-09-10T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00316",
+      "customer_id": "cus_028",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        }
+      ],
+      "total_cents": 700,
+      "created_at": "2026-07-15T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00317",
+      "customer_id": "cus_028",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1000,
+      "created_at": "2026-07-22T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00318",
+      "customer_id": "cus_028",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        }
+      ],
+      "total_cents": 700,
+      "created_at": "2026-07-29T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00319",
+      "customer_id": "cus_028",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        }
+      ],
+      "total_cents": 700,
+      "created_at": "2026-08-05T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00320",
+      "customer_id": "cus_028",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1050,
+      "created_at": "2026-08-12T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00321",
+      "customer_id": "cus_028",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        }
+      ],
+      "total_cents": 700,
+      "created_at": "2026-08-19T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00322",
+      "customer_id": "cus_028",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        }
+      ],
+      "total_cents": 700,
+      "created_at": "2026-08-26T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00323",
+      "customer_id": "cus_028",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1000,
+      "created_at": "2026-09-02T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00324",
+      "customer_id": "cus_028",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        }
+      ],
+      "total_cents": 700,
+      "created_at": "2026-09-09T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00325",
+      "customer_id": "cus_029",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        }
+      ],
+      "total_cents": 750,
+      "created_at": "2026-07-10T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00326",
+      "customer_id": "cus_029",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1050,
+      "created_at": "2026-07-23T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00327",
+      "customer_id": "cus_029",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        }
+      ],
+      "total_cents": 750,
+      "created_at": "2026-08-05T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00328",
+      "customer_id": "cus_029",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        }
+      ],
+      "total_cents": 750,
+      "created_at": "2026-08-18T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00329",
+      "customer_id": "cus_029",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1100,
+      "created_at": "2026-08-31T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00330",
+      "customer_id": "cus_030",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        }
+      ],
+      "total_cents": 800,
+      "created_at": "2026-07-10T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00331",
+      "customer_id": "cus_030",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1100,
+      "created_at": "2026-07-23T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00332",
+      "customer_id": "cus_030",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        }
+      ],
+      "total_cents": 800,
+      "created_at": "2026-08-05T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00333",
+      "customer_id": "cus_030",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        }
+      ],
+      "total_cents": 800,
+      "created_at": "2026-08-18T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00334",
+      "customer_id": "cus_030",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1150,
+      "created_at": "2026-08-31T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00335",
+      "customer_id": "cus_031",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        }
+      ],
+      "total_cents": 850,
+      "created_at": "2026-08-05T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00336",
+      "customer_id": "cus_031",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1150,
+      "created_at": "2026-09-14T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00337",
+      "customer_id": "cus_032",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        }
+      ],
+      "total_cents": 700,
+      "created_at": "2026-09-16T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00338",
+      "customer_id": "cus_033",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        }
+      ],
+      "total_cents": 750,
+      "created_at": "2026-08-03T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00339",
+      "customer_id": "cus_033",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1050,
+      "created_at": "2026-09-28T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00340",
+      "customer_id": "cus_034",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        }
+      ],
+      "total_cents": 800,
+      "created_at": "2026-09-14T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00341",
+      "customer_id": "cus_035",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        }
+      ],
+      "total_cents": 850,
+      "created_at": "2026-08-01T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00342",
+      "customer_id": "cus_035",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1150,
+      "created_at": "2026-09-26T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00343",
+      "customer_id": "cus_036",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        }
+      ],
+      "total_cents": 700,
+      "created_at": "2026-09-12T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00344",
+      "customer_id": "cus_037",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        }
+      ],
+      "total_cents": 750,
+      "created_at": "2026-08-11T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00345",
+      "customer_id": "cus_037",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1050,
+      "created_at": "2026-09-24T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00346",
+      "customer_id": "cus_038",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        }
+      ],
+      "total_cents": 800,
+      "created_at": "2026-09-10T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00347",
+      "customer_id": "cus_039",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        }
+      ],
+      "total_cents": 850,
+      "created_at": "2026-08-09T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00348",
+      "customer_id": "cus_039",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1150,
+      "created_at": "2026-09-22T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00349",
+      "customer_id": "cus_040",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        }
+      ],
+      "total_cents": 700,
+      "created_at": "2026-09-08T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00350",
+      "customer_id": "cus_041",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        }
+      ],
+      "total_cents": 750,
+      "created_at": "2026-08-07T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00351",
+      "customer_id": "cus_041",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1050,
+      "created_at": "2026-09-20T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00352",
+      "customer_id": "cus_042",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        }
+      ],
+      "total_cents": 800,
+      "created_at": "2026-09-26T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00353",
+      "customer_id": "cus_043",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        }
+      ],
+      "total_cents": 850,
+      "created_at": "2026-08-05T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00354",
+      "customer_id": "cus_043",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1150,
+      "created_at": "2026-09-18T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00355",
+      "customer_id": "cus_044",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        }
+      ],
+      "total_cents": 700,
+      "created_at": "2026-09-24T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00356",
+      "customer_id": "cus_045",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        }
+      ],
+      "total_cents": 750,
+      "created_at": "2026-08-03T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00357",
+      "customer_id": "cus_045",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1050,
+      "created_at": "2026-09-16T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00358",
+      "customer_id": "cus_046",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        }
+      ],
+      "total_cents": 800,
+      "created_at": "2026-09-22T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00359",
+      "customer_id": "cus_047",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        }
+      ],
+      "total_cents": 850,
+      "created_at": "2026-08-01T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00360",
+      "customer_id": "cus_047",
+      "items": [
+        {
+          "menu_item_id": "menu_chocolate",
+          "quantity": 1,
+          "unit_price_cents": 850
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1150,
+      "created_at": "2026-09-14T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00361",
+      "customer_id": "cus_048",
+      "items": [
+        {
+          "menu_item_id": "menu_vanilla",
+          "quantity": 1,
+          "unit_price_cents": 700
+        }
+      ],
+      "total_cents": 700,
+      "created_at": "2026-09-20T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00362",
+      "customer_id": "cus_049",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        }
+      ],
+      "total_cents": 750,
+      "created_at": "2026-08-11T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00363",
+      "customer_id": "cus_049",
+      "items": [
+        {
+          "menu_item_id": "menu_strawberry",
+          "quantity": 1,
+          "unit_price_cents": 750
+        },
+        {
+          "menu_item_id": "menu_coffee",
+          "quantity": 1,
+          "unit_price_cents": 300
+        }
+      ],
+      "total_cents": 1050,
+      "created_at": "2026-09-28T22:30:00.000Z"
+    },
+    {
+      "id": "ord_00364",
+      "customer_id": "cus_050",
+      "items": [
+        {
+          "menu_item_id": "menu_mango",
+          "quantity": 1,
+          "unit_price_cents": 800
+        }
+      ],
+      "total_cents": 800,
+      "created_at": "2026-09-18T22:30:00.000Z"
+    }
+  ],
+  "offers": [
+    {
+      "id": "offer_cache_cus_025",
+      "customer_id": "cus_025",
+      "message": "Hi Maya! We miss seeing you at Bakeria. Your Strawberry Cloud Parfait is waiting, and a topping is on us with your next parfait. Love, Grandma",
+      "status": "draft",
+      "source": "cached",
+      "created_at": "2026-10-02T22:30:00.000Z"
+    },
+    {
+      "id": "offer_cache_cus_026",
+      "customer_id": "cus_026",
+      "message": "Hi Daniel! We miss seeing you at Bakeria. Your Mango Sunshine Parfait is waiting, and a topping is on us with your next parfait. Love, Grandma",
+      "status": "draft",
+      "source": "cached",
+      "created_at": "2026-10-02T22:30:00.000Z"
+    },
+    {
+      "id": "offer_cache_cus_027",
+      "customer_id": "cus_027",
+      "message": "Hi Sofia! We miss seeing you at Bakeria. Your Chocolate Hug Parfait is waiting, and a topping is on us with your next parfait. Love, Grandma",
+      "status": "draft",
+      "source": "cached",
+      "created_at": "2026-10-02T22:30:00.000Z"
+    },
+    {
+      "id": "offer_cache_cus_028",
+      "customer_id": "cus_028",
+      "message": "Hi Eli! We miss seeing you at Bakeria. Your Vanilla Berry Parfait is waiting, and a topping is on us with your next parfait. Love, Grandma",
+      "status": "draft",
+      "source": "cached",
+      "created_at": "2026-10-02T22:30:00.000Z"
+    },
+    {
+      "id": "offer_cache_cus_029",
+      "customer_id": "cus_029",
+      "message": "Hi Grace! We miss seeing you at Bakeria. Your Strawberry Cloud Parfait is waiting, and a topping is on us with your next parfait. Love, Grandma",
+      "status": "draft",
+      "source": "cached",
+      "created_at": "2026-10-02T22:30:00.000Z"
+    },
+    {
+      "id": "offer_cache_cus_030",
+      "customer_id": "cus_030",
+      "message": "Hi Samuel! We miss seeing you at Bakeria. Your Mango Sunshine Parfait is waiting, and a topping is on us with your next parfait. Love, Grandma",
+      "status": "draft",
+      "source": "cached",
+      "created_at": "2026-10-02T22:30:00.000Z"
+    }
+  ]
+}

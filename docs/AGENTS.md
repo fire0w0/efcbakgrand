@@ -1,0 +1,16 @@
+# Rules for every Bakeria agent
+
+Assumptions: three agents, one per developer, in independent checkouts; commit-0 is the shared base; these rules govern the entire repository through the root AGENTS.md pointer.
+
+1. **Read `/docs` first:** VISION.md, ARCHITECTURE.md, CONTRACTS.md, INTEGRATION.md, this file, and your DEV1/DEV2/DEV3 brief before editing.
+2. **Edit only your owned paths.** Dev 1: `server/**`, `tests/backend/**`. Dev 2: `src/dashboard/**`. Dev 3: `src/customer/**`. If your role has not been assigned, request that assignment before feature edits. Read access to the rest of the repo is fine.
+3. **Never change CONTRACTS.md without the team.** All three developers must agree. Dev 1 then makes an isolated shared commit on main and runs the generator. Never hand-edit `src/shared/contracts.ts` or define alternate shared shapes in feature folders.
+4. **Frozen files stay frozen.** Root config, package/lock files, shared entry point and styles, shared transport/types, docs, seed/generators, and scaffold tests are commit-0 infrastructure. No new dependencies, routes, shared components, or cross-folder refactors without the same team process. Put feature-specific types and UI helpers in your own folder; they must not duplicate or change wire contracts.
+5. **One branch and checkout per agent.** Never switch another agent's checkout, overwrite its work, or commit runtime JSON/.env/node_modules/dist. Feature agents must not create additional agents that edit overlapping files.
+6. **Use the shared seed and demo clock.** Synthetic data only. Do not regenerate different customer IDs or alter the frozen fixture. Reset your ignored runtime data as needed with the server stopped.
+7. **Make mocks explicit and local.** Keep them in your owned UI folder and behind an opt-in mock flag. The integrated app always calls the real API. A 501 is a stub, not success.
+8. **Keep money and identity honest.** CAD cents, no invented revenue recovery, no real payments, auth, outbound SMS/email, or public deployment. Never put provider keys in client code or logs. Approval only reveals an offer inside the customer hub.
+9. **Respect the clock.** Build only the core loop before the shared 7:30 pass. All three repair failures within ownership. Stop stretch at 7:50 and code at 8:10 Toronto.
+10. **Verify and hand off.** Run `npm run check` and `npm run build`; Dev 1 also runs `npm run test:backend`. Report commit hash, owned files changed, checks run, and remaining stubs/limitations. Do not describe mocked or untested behavior as finished.
+
+For commit-0 creation only, the scaffolding agent may create all agreed infrastructure and owned starter files before the ownership freeze. That exception ends when the commit-0 tag is created; it does not grant feature agents permission to modify shared files later.

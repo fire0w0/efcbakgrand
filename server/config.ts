@@ -13,6 +13,10 @@ export const config = {
   openaiModel: process.env.OPENAI_MODEL || 'gpt-4.1-mini',
 };
 if (!Number.isFinite(Date.parse(config.demoNow))) throw new Error('Invalid DEMO_NOW');
+config.demoNow = new Date(config.demoNow).toISOString();
+if (!Number.isInteger(config.aiTimeoutMs) || config.aiTimeoutMs < 1 || config.aiTimeoutMs > 4000) {
+  throw new Error('AI_TIMEOUT_MS must be between 1 and 4000');
+}
 if (config.orderFormUrl && !/^https:\/\/(docs\.google\.com\/forms\/|forms\.gle\/)/.test(config.orderFormUrl)) {
   throw new Error('ORDER_FORM_URL must be a published HTTPS Google Form link');
 }

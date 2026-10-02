@@ -6,7 +6,7 @@ import { config } from './config';
 import { openStore } from './store';
 
 const store = openStore();
-const app = createApp(store.read);
+const app = createApp(store.read, { write: store.write });
 const httpServer = createHttpServer(app);
 if (process.argv.includes('--production')) {
   app.use(express.static('dist'));

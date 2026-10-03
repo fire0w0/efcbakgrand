@@ -1,5 +1,7 @@
 # Dev 1 — backend, data, and integration
 
+Post-merge note: this original implementation brief is retained for context. The backend is merged at `97a9258`; do not rebuild the old stubs. Follow [NEXT_STEPS.md](NEXT_STEPS.md) for current priorities. API key integration is already delegated; coordinate with its existing owner. Preserve the immutable cached-template guard while the dashboard fixes its editing affordance. Estimated revenue at risk remains the small backend follow-up after core acceptance.
+
 Assumptions: you are one of three independent agents; branch `dev1-backend` starts at `commit-0`; implementation window is 6:30–8:10 PM Toronto. Read all `/docs` before coding, especially CONTRACTS.md. This file is a direct implementation brief.
 
 ## Ownership

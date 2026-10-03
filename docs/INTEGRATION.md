@@ -1,6 +1,14 @@
 # Integration and rehearsal
 
-Assumptions: all times October 2, 2026 in Toronto; three developers have separate clones/worktrees; Dev 1 integrates; commit-0 is the shared base; no Git remote has been supplied. Local branches/tag can exist now; a human supplies a remote to share with other machines. Never make three agents edit one checkout or switch its branch underneath each other.
+Assumptions: all times October 2, 2026 in Toronto; three developers have separate clones/worktrees; Dev 1 integrates. Remote `origin` is configured as `https://github.com/fire0w0/efcbakgrand`. Never make three agents edit one checkout or switch its branch underneath each other.
+
+## Post-merge status and next work
+
+All three feature branches are merged at `97a9258`. The branch-creation instructions and timed schedule below describe the original sprint. **Do not recreate branches from commit-0 for follow-up work:** start from current merged main. Local Dev 1/Dev 2 branch names may still point to the old base; they are not evidence that features are missing from main.
+
+Use [NEXT_STEPS.md](NEXT_STEPS.md) for the current audit, exact UI cleanup inventory, delegated integration handoffs, and next acceptance run. API key and Google Form work are already delegated. Core checks passed in the preceding review, but the complete phone/browser loop is still unverified. No implementation is performed by this planning update.
+
+The upcoming full-card UI improvement will disable Add stamp at ten rather than deliberately trigger a visible error; keep the backend's 409 test. The concise planned source label “Saved suggestion” denotes cached fallback, and “AI-assisted” denotes model selection. A single Demo indicator with expandable limitations replaces repetitive action-level simulation text. These presentation updates preserve the checklist's underlying state and honesty requirements.
 
 ## Commit-0 and branches
 

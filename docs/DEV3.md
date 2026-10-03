@@ -1,5 +1,7 @@
 # Dev 3 — customer's phone hub and order-ahead link
 
+Post-merge note: the customer hub is merged at `97a9258`. See [NEXT_STEPS.md](NEXT_STEPS.md) for the current copy cleanup, free-parfait reward clarity, new-customer greeting, and optional used-offer cleanup. Google Form integration is already delegated; coordinate with the existing owner rather than duplicating it. One compact Demo disclosure replaces repeated action-level simulation copy when implemented. Start follow-up work from current main; the original scaffold/mock instructions below are historical.
+
 Assumptions: branch `dev3-customer` starts at `commit-0`; 6:30–8:10 PM Toronto window; no real authentication or payment. Read all `/docs` first. This is your agent implementation brief.
 
 ## Ownership

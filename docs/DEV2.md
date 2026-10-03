@@ -1,5 +1,7 @@
 # Dev 2 — Grandma's dashboard
 
+Post-merge note: the dashboard is merged at `97a9258`. The current follow-up brief is [NEXT_STEPS.md](NEXT_STEPS.md): remove unnecessary UI text, fix the cached-template editing affordance and mock mismatch, refresh data on focus, and make overdue customers easier to act on. Its concise-copy policy supersedes repeated action-level rehearsal/simulation wording below. This is planned work, not an implemented change. Start from current main and retain dashboard ownership.
+
 Assumptions: branch `dev2-dashboard` starts at `commit-0`; 6:30–8:10 PM Toronto build window; Dev 1 owns the server, Dev 3 owns the customer hub. Read all `/docs` first. This is your agent implementation brief.
 
 ## Ownership

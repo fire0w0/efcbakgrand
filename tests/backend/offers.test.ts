@@ -108,6 +108,55 @@ test('uncached history stays factual and maximum-length names fit the message co
   assert.match(result.message, /free topping with your next parfait/);
 });
 
+test('every candidate is short, in Grandma\'s voice, keeps the one benefit, and never repeats the fallback', async () => {
+  const db = readSeed();
+  const plain = createOfferGenerator({ apiKey: '' });
+  for (const customer of db.customers) {
+    let candidates: string[] = [];
+    let first = '';
+    let visits = -1;
+    await createOfferGenerator({ apiKey: secret, fetch: fakeFetch((_url, init) => {
+      const { prompt } = requestData(init);
+      candidates = prompt.candidate_messages;
+      first = prompt.customer.first_name;
+      visits = prompt.customer.visits;
+      return Response.json(completed(candidates[0]));
+    }) })(db, customer.id);
+    assert.ok(candidates.length >= 2, `${customer.id} should get a real choice`);
+    const fallback = (await plain(db, customer.id)).message;
+    for (const message of candidates) {
+      assert.ok(message.length <= 280);
+      assert.ok(message.includes(first));
+      assert.match(message, /free topping with your next parfait/);
+      assert.match(message, /(Love|Hugs|With love), Grandma$/);
+      assert.doesNotMatch(message, /%|\$|discount|expire|today|tonight/i);
+      assert.notEqual(message, fallback);
+      // The only number a message may state is the customer's real visit count.
+      for (const number of message.match(/\d+/g) ?? []) assert.equal(Number(number), visits);
+    }
+  }
+});
+
+test('new customers only get welcome lines; lapsed regulars get missed-you lines', async () => {
+  const db = readSeed();
+  const capture = async (customerId: string) => {
+    let candidates: string[] = [];
+    await createOfferGenerator({ apiKey: secret, fetch: fakeFetch((_url, init) => {
+      candidates = requestData(init).prompt.candidate_messages;
+      return Response.json(completed(candidates[0]));
+    }) })(db, customerId);
+    return candidates;
+  };
+  db.customers.push({ id: 'new-person', name: 'New friend', phone: '+15195550199', joined_at: config.demoNow, stamps: 0 });
+  for (const message of await capture('new-person')) {
+    assert.match(message, /welcome|glad you found us/i);
+    assert.doesNotMatch(message, /missed|again|visits|seeing you/i);
+  }
+  const lapsed = await capture(maya);
+  assert.ok(lapsed.some(message => /missed you/.test(message)));
+  assert.ok(lapsed.every(message => !/visits and counting/.test(message)));
+});
+
 test('unknown customer fails before any provider call', async () => {
   const generate = createOfferGenerator({ apiKey: secret, fetch: fakeFetch(() => { throw new Error('Must not fetch'); }) });
   await assert.rejects(generate(readSeed(), 'missing'), /Customer not found/);

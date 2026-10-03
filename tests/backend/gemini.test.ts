@@ -78,6 +78,17 @@ test('explicit model option overrides the configured Gemini model', async () => 
   assert.match(url, /models\/gemini-2\.5-flash-lite:generateContent$/);
 });
 
+test('Flash-Lite models omit thinkingConfig, which they reject', async () => {
+  let thinkingConfig: unknown = 'not called';
+  const generate = gemini({ apiKey: secret, model: 'gemini-3.5-flash-lite', fetch: fakeFetch((_url, init) => {
+    const { body, prompt } = requestData(init);
+    thinkingConfig = body.generationConfig.thinkingConfig;
+    return Response.json(reply(prompt.candidate_messages[0]));
+  }) });
+  assert.equal((await generate(readSeed(), maya)).source, 'ai');
+  assert.equal(thinkingConfig, undefined);
+});
+
 test('HTTP errors, rejected fetch, and invalid JSON fall back without leaking provider details', async t => {
   const failures: [string, typeof fetch][] = [
     ...[400, 403, 429, 500, 503].map(status => [`HTTP ${status}`, fakeFetch(() => new Response(secret, { status }))] as [string, typeof fetch]),

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import type { FormEvent } from 'react';
 import { useCustomerHub } from './useCustomerHub';
 import OrderAhead from './OrderAhead';
+import { BrandHeader } from '../shared/brand';
 import './customer.css';
 
 function Flower({ className = '' }: { className?: string }) {
@@ -12,7 +13,7 @@ function Flower({ className = '' }: { className?: string }) {
 }
 
 export default function CustomerApp() {
-  const { customerId, hub, loading, busy, error, notice, join, switchCustomer, refresh, redeemReward, redeemOffer } = useCustomerHub();
+  const { customerId, hub, loading, busy, error, notice, join, switchCustomer, refresh, redeemOffer } = useCustomerHub();
   const [phone, setPhone] = useState('');
   const [phoneError, setPhoneError] = useState('');
   const visibleHub = hub?.customer.id === customerId ? hub : null;
@@ -39,11 +40,7 @@ export default function CustomerApp() {
 
   return <main className="customer">
     <div className="customer-shell">
-      <header className="customer-brand">
-        <Flower className="brand-flower" />
-        <div><span className="brand-name">Bakeria</span><span className="brand-subtitle">Friends Forever</span></div>
-        <span className="brand-note">A little sweetness.<br />A familiar face.</span>
-      </header>
+      <BrandHeader homeHref="/hub" subtitle="A little sweetness, a familiar face" />
 
       {!customerId ? <>
         <section className="customer-intro">
@@ -88,8 +85,7 @@ export default function CustomerApp() {
               </li>)}
             </ol>
             <div className="reward-progress" role="status"><strong>{visibleHub.customer.stamps} <span>/ {visibleHub.reward_target} stamps</span></strong><span>{visibleHub.customer.stamps === visibleHub.reward_target ? 'A full card. How sweet!' : `${visibleHub.reward_target - visibleHub.customer.stamps} more to your reward`}</span></div>
-            <div className="reward-action"><p>{visibleHub.customer.stamps === visibleHub.reward_target ? 'Your reward is ready to redeem.' : 'Grandma adds a stamp when you stop by.'}</p>
-              <button className="primary-button" onClick={redeemReward} disabled={visibleHub.customer.stamps !== visibleHub.reward_target || busy !== null}>{busy === 'reward' ? 'Redeeming…' : 'Redeem reward'}<span aria-hidden="true">↗</span></button>
+            <div className="reward-action"><p>{visibleHub.customer.stamps === visibleHub.reward_target ? 'Your reward is ready. Ask Grandma to redeem it at the counter.' : 'Grandma adds a stamp when you stop by.'}</p>
             </div>
           </section>
           <section className="customer-offers" aria-labelledby="offers-title">

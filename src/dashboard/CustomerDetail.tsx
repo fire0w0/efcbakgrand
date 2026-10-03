@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import type { CustomerDetailResponse, MenuItem, Order } from '../shared/contracts';
 import { client } from './client';
 import { errorMessage, firstName, formatCents, formatDate, formatWeekday, pluralDays, roundDays } from './format';
@@ -14,8 +14,12 @@ export default function CustomerDetail({ id }: { id: string }) {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(true);
   const [reload, setReload] = useState(0);
-  const [stampPending, setStampPending] = useState(false);
-  const [stampError, setStampError] = useState('');
+  const [cardPending, setCardPending] = useState<'add' | 'redeem' | null>(null);
+  const [cardError, setCardError] = useState('');
+  const [cardNotice, setCardNotice] = useState('');
+  const [confirmReward, setConfirmReward] = useState(false);
+  const cardLock = useRef(false);
+  const readVersion = useRef(0);
 
   useEffect(() => {
     let cancelled = false;
@@ -27,25 +31,37 @@ export default function CustomerDetail({ id }: { id: string }) {
 
   useEffect(() => {
     let cancelled = false;
+    const version = ++readVersion.current;
+    const current = () => !cancelled && version === readVersion.current;
     setLoading(true);
     client.customer(id)
-      .then(d => { if (!cancelled) { setDetail(d); setError(''); } })
-      .catch(e => { if (!cancelled) setError(errorMessage(e)); })
-      .finally(() => { if (!cancelled) setLoading(false); });
+      .then(d => { if (current()) { setDetail(d); setError(''); } })
+      .catch(e => { if (current()) setError(errorMessage(e)); })
+      .finally(() => { if (current()) setLoading(false); });
     return () => { cancelled = true; };
   }, [id, reload]);
 
   const refetch = () => setReload(n => n + 1);
 
-  async function addStamp() {
-    setStampPending(true); setStampError('');
+  async function updateCard(action: 'add' | 'redeem') {
+    if (cardLock.current || loading || !detail) return;
+    if (action === 'add' ? detail.customer.stamps >= REWARD_TARGET : !confirmReward || detail.customer.stamps !== REWARD_TARGET) return;
+    cardLock.current = true;
+    ++readVersion.current;
+    setCardPending(action); setCardError(''); setCardNotice('');
     try {
-      const { customer } = await client.addStamp(id);
+      const { customer } = await (action === 'add' ? client.addStamp(id) : client.redeemReward(id));
+      ++readVersion.current;
       setDetail(d => d && { ...d, customer: { ...d.customer, stamps: customer.stamps } });
-      refetch();
+      setConfirmReward(false);
+      setCardNotice(action === 'add' ? 'Stamp added.' : 'Reward redeemed. The customer’s card has been reset to 0 stamps.');
     } catch (e) {
-      setStampError(`Couldn’t add a stamp: ${errorMessage(e)}`);
-    } finally { setStampPending(false); }
+      setCardError(`Couldn’t ${action === 'add' ? 'add a stamp' : 'redeem the reward'}: ${errorMessage(e)}`);
+    } finally {
+      cardLock.current = false;
+      setCardPending(null);
+      refetch();
+    }
   }
 
   const back = <p><a href={href('/grandma')} onClick={e => navigate(e, '/grandma')}>← All regulars</a></p>;
@@ -92,15 +108,28 @@ export default function CustomerDetail({ id }: { id: string }) {
     <section className="dashboard-stamps" aria-labelledby="dashboard-stamps-heading">
       <div className="dashboard-section-head">
         <h2 id="dashboard-stamps-heading">Reward card · {customer.stamps} / {REWARD_TARGET}</h2>
-        <button type="button" className="dashboard-primary" onClick={addStamp} disabled={stampPending}>
-          {stampPending ? 'Adding…' : 'Add stamp'}
-        </button>
+        <div className="dashboard-actions">
+          <button type="button" onClick={() => void updateCard('add')} disabled={Boolean(cardPending) || loading || customer.stamps >= REWARD_TARGET}>
+            {cardPending === 'add' ? 'Adding…' : 'Add stamp'}
+          </button>
+          <button type="button" className="dashboard-primary" aria-expanded={confirmReward && customer.stamps === REWARD_TARGET} aria-controls="dashboard-reward-confirm" onClick={() => { setConfirmReward(true); setCardError(''); setCardNotice(''); }} disabled={Boolean(cardPending) || loading || customer.stamps !== REWARD_TARGET}>
+            {cardPending === 'redeem' ? 'Redeeming…' : 'Redeem reward'}
+          </button>
+        </div>
       </div>
       <div className="dashboard-stamp-row" aria-hidden="true">
         {Array.from({ length: REWARD_TARGET }, (_, i) => <span key={i} className={`dashboard-stamp${i < customer.stamps ? ' dashboard-stamp-on' : ''}`} />)}
       </div>
-      <p className="dashboard-muted dashboard-small">Mocked checkout: a stamp updates {first}’s phone card but records no sale. Redemption happens on the customer’s phone.</p>
-      {stampError && <p className="dashboard-error" role="alert">{stampError} <button type="button" onClick={addStamp} disabled={stampPending}>Try again</button></p>}
+      <p className="dashboard-muted dashboard-small">{customer.stamps === REWARD_TARGET ? 'Reward ready. Redeem it here when you hand it to the customer.' : `A full card of ${REWARD_TARGET} stamps is needed to redeem a reward.`} Stamps and redemption update {first}’s phone card without recording a sale.</p>
+      <div id="dashboard-reward-confirm" hidden={!confirmReward || customer.stamps !== REWARD_TARGET} className="dashboard-banner" role="group" aria-label="Confirm reward redemption">
+        <p>Redeem {first}’s reward and reset all {REWARD_TARGET} stamps to zero?</p>
+        <div className="dashboard-actions">
+          <button type="button" className="dashboard-primary" onClick={() => void updateCard('redeem')} disabled={Boolean(cardPending) || loading}>{cardPending === 'redeem' ? 'Redeeming…' : 'Confirm redemption'}</button>
+          <button type="button" onClick={() => setConfirmReward(false)} disabled={Boolean(cardPending)}>Keep stamps</button>
+        </div>
+      </div>
+      {cardError && <p className="dashboard-error" role="alert">{cardError} <button type="button" onClick={refetch} disabled={Boolean(cardPending) || loading}>Refresh card</button></p>}
+      {cardNotice && <p className="dashboard-success" role="status">{cardNotice}</p>}
     </section>
 
     <OfferPanel customerId={customer.id} customerName={customer.name} offers={offers} onChanged={refetch} />

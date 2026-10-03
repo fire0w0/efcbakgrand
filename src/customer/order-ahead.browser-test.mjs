@@ -42,6 +42,7 @@ test('built-in order ahead: totals, safe reload/retry, status polling, customer 
       throw new Error(`Unexpected request ${path}`);
     });
     await page.goto(`${base}/hub/cus_025`);
+    await page.getByRole('button', { name: 'Start an order', exact: true }).click();
     const quantity = page.getByLabel(`Quantity for ${seed.menu_items[0].name}`, { exact: true });
     await quantity.selectOption('2');
     assert.equal(await page.getByLabel('Pickup time', { exact: true }).inputValue(), '2026-10-02T22:45:00.000Z');

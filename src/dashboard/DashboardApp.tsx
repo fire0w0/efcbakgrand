@@ -1,3 +1,4 @@
+import { BrandHeader, Icon } from '../shared/brand';
 import { isMockMode } from './client';
 import CustomerDetail from './CustomerDetail';
 import CustomerList from './CustomerList';
@@ -12,20 +13,17 @@ export default function DashboardApp() {
   const match = !isOrders && path.match(/^\/grandma\/([^/]+)\/?$/);
   const customerId = match ? decodeURIComponent(match[1]) : null;
 
-  return <main className="dashboard">
-    <header className="dashboard-top">
-      <p className="dashboard-brand"><a href={href('/grandma')} onClick={e => navigate(e, '/grandma')}>Bakeria Friends Forever</a> · Grandma’s dashboard</p>
-      <nav aria-label="Customer view">
-        <a href="/hub" target="_blank" rel="noopener noreferrer">Customer hub ↗</a>
-      </nav>
-    </header>
-    <nav className="dashboard-tabs" aria-label="Dashboard">
-      <a href={href('/grandma')} onClick={e => navigate(e, '/grandma')} aria-current={!isOrders ? 'page' : undefined}>Regulars</a>
-      <a href={href('/grandma/orders')} onClick={e => navigate(e, '/grandma/orders')} aria-current={isOrders ? 'page' : undefined}>Orders</a>
-    </nav>
-    {isMockMode && <p className="dashboard-mock" role="status">
-      <strong>Mock mode (?mock=1).</strong> Stamps and offers are simulated in this tab only and never reach the server. Remove the flag for the real API.
-    </p>}
-    {isOrders ? <OrdersView /> : customerId ? <CustomerDetail key={customerId} id={customerId} /> : <CustomerList />}
-  </main>;
+  return <div className="dashboard-shell">
+    <BrandHeader homeHref={href('/grandma')} onHome={e => navigate(e, '/grandma')} subtitle="Grandma’s dashboard">
+      <a href={href('/grandma')} onClick={e => navigate(e, '/grandma')} aria-current={!isOrders ? 'page' : undefined}><Icon name="user" size={20} /><span className="brand-nav-label">Regulars</span></a>
+      <a href={href('/grandma/orders')} onClick={e => navigate(e, '/grandma/orders')} aria-current={isOrders ? 'page' : undefined}><Icon name="receipt" size={20} /><span className="brand-nav-label">Orders</span></a>
+      <a href="/hub" target="_blank" rel="noopener noreferrer"><Icon name="external" size={20} /><span className="brand-nav-label">Customer hub</span></a>
+    </BrandHeader>
+    <main className="dashboard">
+      {isMockMode && <p className="dashboard-mock" role="status">
+        <strong>Mock mode (?mock=1).</strong> Stamps and offers are simulated in this tab only and never reach the server. Remove the flag for the real API.
+      </p>}
+      {isOrders ? <OrdersView /> : customerId ? <CustomerDetail key={customerId} id={customerId} /> : <CustomerList />}
+    </main>
+  </div>;
 }

@@ -24,7 +24,7 @@ function fakeReal(): DashboardClient {
     customers: async () => ({ customers: [{ ...maya }], as_of: asOf }),
     customer: async () => detail(),
     metrics: async () => ({ ...metrics }),
-    addStamp: unsupported, draftOffer: unsupported, saveOffer: unsupported, approveOffer: unsupported,
+    addStamp: unsupported, redeemReward: unsupported, draftOffer: unsupported, saveOffer: unsupported, approveOffer: unsupported,
   };
 }
 
@@ -36,6 +36,9 @@ test('stamps cap at ten and the overlay shows in reads', async () => {
   await assert.rejects(mock.addStamp('cus_025'), /full/);
   assert.equal((await mock.customer('cus_025')).customer.stamps, 10);
   assert.equal((await mock.customers({})).customers[0].stamps, 10);
+  assert.equal((await mock.redeemReward('cus_025')).customer.stamps, 0);
+  assert.equal((await mock.customer('cus_025')).customer.stamps, 0);
+  await assert.rejects(mock.redeemReward('cus_025'), /Ten stamps/);
 });
 
 test('draft, edit, approve follow the contract and update metrics', async () => {

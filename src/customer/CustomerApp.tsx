@@ -2,6 +2,7 @@ import { useState } from 'react';
 import type { FormEvent } from 'react';
 import { useCustomerHub } from './useCustomerHub';
 import OrderAhead from './OrderAhead';
+import { BrandHeader } from '../shared/brand';
 import './customer.css';
 
 function Flower({ className = '' }: { className?: string }) {
@@ -39,11 +40,7 @@ export default function CustomerApp() {
 
   return <main className="customer">
     <div className="customer-shell">
-      <header className="customer-brand">
-        <Flower className="brand-flower" />
-        <div><span className="brand-name">Bakeria</span><span className="brand-subtitle">Friends Forever</span></div>
-        <span className="brand-note">A little sweetness.<br />A familiar face.</span>
-      </header>
+      <BrandHeader homeHref="/hub" subtitle="A little sweetness, a familiar face" />
 
       {!customerId ? <>
         <section className="customer-intro">

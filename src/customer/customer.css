@@ -79,6 +79,42 @@
 .customer .order-unavailable { border-top: 1px solid #bcc2ab; margin-top: 20px; padding-top: 16px; }
 .customer .order-unavailable > span { font-family: 'Trebuchet MS', sans-serif; font-size: 13px; font-weight: 700; }
 .customer .order-card .order-unavailable p { margin-top: 6px; font-size: 12px; }
+.customer .order-ahead .order-demo-clock { margin-top: 18px; padding: 12px; border: 1px dashed #aeb69b; color: #45533d; font-family: 'Trebuchet MS', sans-serif; font-size: 12px; line-height: 1.6; }
+.customer .order-ahead .order-loading { padding: 24px 0; font-size: 14px; }
+.customer .order-ahead fieldset { min-width: 0; margin: 0; padding: 0; border: 0; }
+.customer .order-ahead legend { padding: 0 0 14px; font-size: 19px; }
+.customer .order-menu-item { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 15px 0; border-top: 1px solid #c3c9b6; }
+.customer .order-menu-item label { margin: 0; line-height: 1.5; font-size: 14px; }
+.customer .order-item-price { display: block; margin-top: 4px; color: #5c6652; font-size: 12px; font-weight: 400; }
+.customer .order-ahead select, .customer .order-ahead textarea { display: block; max-width: 100%; width: 100%; min-height: 48px; padding: 12px; border: 1px solid #a2ab93; border-radius: 2px; color: var(--ink); background: #fffdf8; font-family: 'Trebuchet MS', sans-serif; font-size: 16px; }
+.customer .order-ahead textarea { resize: vertical; }
+.customer .order-menu-item select { flex: 0 0 72px; width: 72px; }
+.customer .order-ahead .order-details { margin-top: 26px; }
+.customer .order-details input { font-size: 16px; border-color: #a2ab93; }
+.customer .pickup-fields { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 12px; margin-top: 18px; }
+.customer .order-details > label:not(:first-of-type) { margin-top: 18px; }
+.customer .order-total { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding-top: 20px; margin-top: 22px; border-top: 1px solid #acb59a; font-family: 'Trebuchet MS', sans-serif; font-size: 14px; }
+.customer .order-total strong { font-size: 25px; }
+.customer .order-ahead .order-success { margin-top: 20px; padding: 18px; background: #f5f8ef; border: 1px solid #889977; font-family: 'Trebuchet MS', sans-serif; color: #35492d; }
+.customer .order-ahead .order-success p { margin-top: 8px; line-height: 1.6; font-size: 13px; }
+.customer .your-orders { margin-top: 30px; padding-top: 24px; border-top: 1px solid #aeb69b; }
+.customer .your-orders h3 { margin: 0 0 16px; font-size: 23px; font-weight: 400; }
+.customer .customer-order-tabs { display: flex; gap: 8px; }
+.customer .customer-order-tabs button { flex: 1; padding: 12px 8px; min-height: 46px; background: transparent; color: #425239; border: 1px solid #9eab8c; font-family: 'Trebuchet MS', sans-serif; font-size: 13px; }
+.customer .customer-order-tabs button[aria-pressed='true'] { background: #435239; color: #fffdf8; }
+.customer .order-ahead .orders-empty { padding: 20px 0 0; color: #5c6652; line-height: 1.6; font-size: 14px; }
+.customer .preorder-receipt { padding: 18px 16px; margin-top: 16px; background: #fffdf8; border: 1px solid #bcc3af; overflow-wrap: anywhere; }
+.customer .preorder-receipt-heading { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px; }
+.customer .preorder-receipt-heading > strong { font-size: 17px; font-weight: 400; }
+.customer .preorder-status { padding: 5px 8px; background: #e9eddf; color: #435239; font-family: 'Trebuchet MS', sans-serif; font-size: 11px; }
+.customer .preorder-cancelled { background: #f4e5de; color: #854735; }
+.customer .preorder-receipt ul { list-style: none; margin: 16px 0; padding: 0; }
+.customer .preorder-receipt li { display: flex; justify-content: space-between; gap: 12px; font-family: 'Trebuchet MS', sans-serif; font-size: 12px; line-height: 1.6; margin-top: 8px; }
+.customer .preorder-receipt li > span:last-child { white-space: nowrap; }
+.customer .preorder-note { padding: 12px 0; border-top: 1px dashed #d0d4c7; font-size: 13px; line-height: 1.6; white-space: pre-wrap; }
+.customer .preorder-receipt-total { display: flex; justify-content: space-between; gap: 12px; border-top: 1px solid #d0d4c7; padding-top: 12px; font-family: 'Trebuchet MS', sans-serif; font-size: 12px; }
+.customer .preorder-reference { margin-top: 14px; color: #736350; font-family: 'Trebuchet MS', sans-serif; font-size: 9px; line-height: 1.5; }
+.customer .order-ahead :is(input, select, textarea, button):focus-visible { outline: 3px solid #8e4a31; outline-offset: 3px; }
 .customer .customer-error { margin-top: 18px; padding: 14px 16px; border: 1px solid #b86d57; background: #fff0e9; color: #8c2e1b; font-family: 'Trebuchet MS', sans-serif; font-size: 13px; line-height: 1.6; overflow-wrap: anywhere; }
 .customer .customer-notice:not(:empty) { padding: 16px; margin-top: 20px; border: 1px solid #a8b08f; background: #e9ecde; color: #435034; font-family: 'Trebuchet MS', sans-serif; font-size: 13px; line-height: 1.6; }
 .customer .customer-footer { text-align: center; padding: 30px 0 0; color: var(--muted); }
@@ -99,5 +135,6 @@
   .customer .section-heading { align-items: flex-start; }
   .customer .section-heading h2 { max-width: 220px; }
   .customer .section-heading > span { max-width: 65px; white-space: normal; text-align: right; }
+  .customer .pickup-fields { grid-template-columns: 1fr; }
 }
 @media (prefers-reduced-motion: reduce) { .customer .loading-flower { animation: none; } }

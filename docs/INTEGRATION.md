@@ -1,6 +1,14 @@
 # Integration and rehearsal
 
-Assumptions: all times October 2, 2026 in Toronto; three developers have separate clones/worktrees; Dev 1 integrates; commit-0 is the shared base; no Git remote has been supplied. Local branches/tag can exist now; a human supplies a remote to share with other machines. Never make three agents edit one checkout or switch its branch underneath each other.
+Assumptions: all times October 2, 2026 in Toronto; three developers have separate clones/worktrees; Dev 1 integrates. Remote `origin` is configured as `https://github.com/fire0w0/efcbakgrand`. Never make three agents edit one checkout or switch its branch underneath each other.
+
+## Post-merge status and next work
+
+All three feature branches are merged at `97a9258`. The branch-creation instructions and timed schedule below describe the original sprint. **Do not recreate branches from commit-0 for follow-up work:** start from current merged main. Local Dev 1/Dev 2 branch names may still point to the old base; they are not evidence that features are missing from main.
+
+Use [NEXT_STEPS.md](NEXT_STEPS.md) for the current audit, exact UI cleanup inventory, delegated integration handoffs, and next acceptance run. API key and Google Form work are already delegated. Core checks passed in the preceding review, but the complete phone/browser loop is still unverified. No implementation is performed by this planning update.
+
+The upcoming full-card UI improvement will disable Add stamp at ten rather than deliberately trigger a visible error; keep the backend's 409 test. The concise planned source label “Saved suggestion” denotes cached fallback, and “AI-assisted” denotes model selection. A single Demo indicator with expandable limitations replaces repetitive action-level simulation text. These presentation updates preserve the checklist's underlying state and honesty requirements.
 
 ## Commit-0 and branches
 
@@ -60,7 +68,7 @@ Stop the server, run `npm run seed:reset`, ensure all mock query flags are off, 
 3. On Grandma's side open Maya. Show Strawberry Cloud Parfait, itemized history, weekly rhythm and **22-day absence**. Add one stamp. Phone reaches **10 / 10 within two seconds**, without reload. Another add returns a visible full-card error. Redeem reward on phone; it becomes **0 / 10** and stays zero after refresh.
 4. Click Draft offer. Source is shown. Draft contains Maya's name, the favorite item, and the allowed free-topping benefit. **Draft does not appear on phone.** Change one word; save; approve. Within two seconds the **exact edited message** appears on Maya's phone. Open another customer's hub and verify it is absent there.
 5. Redeem that approved offer in the phone demo. Its status becomes redeemed; approved and redeemed counts update after dashboard refetch. No payment or revenue-recovery claim appears. Refresh both views and verify state survives.
-6. Tap **Order ahead**. The **real Google Form** opens in a new tab on the phone without requesting sign-in. A placeholder, missing URL, or generic Google Forms home page fails.
+6. In **Order ahead**, choose menu quantities, a pickup name/date/time and note. Submit and verify the exact items, server-calculated CAD total and requested Toronto pickup time in the customer's upcoming orders and Grandma's **Orders → Upcoming**. Reload both views to verify persistence. Mark the order collected on Grandma's side: both move it to Past, and one historical order is recorded. Repeating collection must not add another order. Cancel a separate order and verify it never becomes a sale. Past orders must also include all original seeded history. No Google Form or online payment is used.
 7. Check fallback: with API key absent, a draft still succeeds and says cached. Dev 1's tests force a provider timeout and verify fallback within the configured deadline plus modest local processing time. A real provider call is optional, but if pitched as live it must have been rehearsed successfully.
 8. Stop/restart server without reseeding. Maya remains at zero stamps and the approved/redeemed offer persists. Final automated gates pass: `npm run check`, `npm run test:backend`, `npm run build`. No core route returns 501 and no default UI path uses mock state.
 
@@ -70,6 +78,6 @@ If phone networking cannot be restored with the hotspot, two laptop windows and 
 
 ## Final demo preparation
 
-Reset to the frozen seed after recording and rehearsal; verify Maya is back to nine stamps and six lapsed flags remain. Keep the production server running on the powered laptop, both demo URLs open, and a local recording available. Use cached fallback if venue internet fails; the app itself runs locally, although opening Google Forms still needs internet.
+Reset to the frozen seed after recording and rehearsal; verify Maya is back to nine stamps and six lapsed flags remain. Keep the production server running on the powered laptop, both demo URLs open, and a local recording available. Use cached fallback if venue internet fails; the app and built-in order-ahead flow run locally.
 
 At 8:10 freeze code. State honestly in the pitch that identity, checkout, and redemption are simulated; offers are shown in-app, not messaged; estimated monthly revenue at risk is not recovered revenue. Preserve the later event schedule: break after 8:30, parfaits 8:45, demos 9:30.

@@ -1,5 +1,9 @@
 # Rules for every Bakeria agent
 
+## Authorized order-ahead update — October 2
+
+The user explicitly suspended developer ownership restrictions for the built-in order-ahead form and Grandma's Orders tab. This feature may update the backend, customer UI, dashboard, shared contracts and supporting docs together. The built-in flow supersedes the Google Form requirement and the original prohibition on order-ahead UI/API work. Generate shared types from CONTRACTS.md; preserve existing runtime data, the seed, and all other core behaviors. The original instructions below describe the initial sprint and still apply where they do not conflict with this authorized extension.
+
 Assumptions: three agents, one per developer, in independent checkouts; commit-0 is the shared base; these rules govern the entire repository through the root AGENTS.md pointer.
 
 1. **Read `/docs` first:** VISION.md, ARCHITECTURE.md, CONTRACTS.md, INTEGRATION.md, this file, and your DEV1/DEV2/DEV3 brief before editing.

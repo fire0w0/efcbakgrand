@@ -1,5 +1,9 @@
 # Architecture
 
+## Built-in order ahead
+
+The customer hub now contains a menu and pickup form. The server persists `preorders` in the same atomic JSON store; older files without that optional array work unchanged. The Orders tab at `/grandma/orders` combines scheduled pickups with historical orders. Collection creates one historical order, without automatically redeeming offers or adding stamps. The hub and dashboard poll for status changes. See CONTRACTS.md for validation, retry semantics and the fixed demo clock. No external Google Form, additional dependency, or online payment service is required; `ORDER_FORM_URL` is retained only for backward compatibility.
+
 Assumptions: empty repository at start; installed Node 20.18.2; three developers; single-machine demo; no cloud account required; no production security claims. CONTRACTS.md owns every shared shape.
 
 ## Stack and hosting decision
@@ -79,7 +83,7 @@ All variables are server-only, loaded from ignored `.env` when it exists using N
 | `PORT` | `3000` | Single HTTP port; Dev 1 |
 | `DATA_FILE` | `data/runtime.json` | Per-checkout mutable JSON; Dev 1; never point at seed |
 | `DEMO_NOW` | `2026-10-02T22:30:00.000Z` | Fixed 6:30 PM Toronto calculation time; keep consistent |
-| `ORDER_FORM_URL` | empty | Published HTTPS Google Form URL; Dev 3 supplies, Dev 1 sets on demo machine |
+| `ORDER_FORM_URL` | empty | Legacy external-form setting, retained for API compatibility; the current hub uses its built-in form |
 | `OPENAI_API_KEY` | empty | Optional real generation; Dev 1 only; never commit or expose to browser |
 | `OPENAI_MODEL` | `gpt-4.1-mini` | Fixed small text-model choice for short drafts |
 | `AI_TIMEOUT_MS` | `4000` | Abort deadline; fallback on timeout |

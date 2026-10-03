@@ -8,7 +8,7 @@ October 2, 2026 · Derek Chen
 - One laptop hosts the web app and synthetic data; a phone reaches it on the same network. No auth, payments, POS integration, SMS, email, or native app.
 - Product name is **Bakeria Friends Forever** throughout. Grandma's customer dashboard and the customer's hub use the same record.
 - The core retention loop is mandatory. The dollar figure is a post-7:30 stretch: estimated monthly revenue at risk. Recovered revenue stays unknown without attributable sales. We will not claim simulated offer approvals are money recovered.
-- Dev 3 supplies a real, published Google Form link; it has not been provided with this brief. Order ahead cannot pass acceptance until that URL works from a phone.
+- Order ahead is built into the customer hub. Customers request menu items and a pickup time; Grandma manages upcoming and past orders in the dashboard Orders tab. This user-authorized extension supersedes the original Google Form plan.
 - Reward target is ten stamps. All money is CAD. Demo time is fixed for repeatable seed behavior. Technical shapes live only in [CONTRACTS.md](CONTRACTS.md).
 
 ## Overview
@@ -32,7 +32,7 @@ Non-goal: replacing the Verifone terminal or handling payments.
 
 | User | Pain today | What they get |
 | --- | --- | --- |
-| Customer | Loses punch cards; the chain is convenient | Reward card on their phone, personal offers, Google Form order-ahead link |
+| Customer | Loses punch cards; the chain is convenient | Reward card on their phone, personal offers, built-in order-ahead form |
 | Grandma | Remembers preferences but may miss a regular's absence | Sortable regulars list, order history, lapsed alerts, editable personal offers |
 
 Two users, one shared record. A dashboard action must become visible in the customer's hub.
@@ -61,7 +61,7 @@ The highlighted step is the retention hook: noticing a regular's absence relativ
 | Grandma's dashboard | Sortable visits, favorite item, last visit, total spend; per-customer order history | All 50 seeded customers can be browsed and detail pages load |
 | Lapsed-regular flag | Three or more visits and absence greater than twice usual gap | Seed produces exactly six believable flagged regulars; occasional visitors are not misclassified |
 | AI-drafted offer | History-based warm message and free-topping offer; editable approval; cached fallback | Grandma changes a word, approves, and that exact message appears only in the right customer's hub |
-| Order ahead | Customer hub button opens the published Google Form in a new tab | Real link opens on the demo phone |
+| Order ahead | Customer chooses items, quantities, pickup time/name and optional note in the hub | Order persists and appears in Grandma's Upcoming orders; collection moves it to Past |
 | Seed data | Fifty customers, three months of orders, meaningful favorites, cached drafts | Every developer starts with identical deterministic data before UI work |
 | Core metrics | Returning-customer rate, lapsed count, approved and redeemed offers | Numbers match the seeded records and update after relevant actions |
 
@@ -69,13 +69,13 @@ The simple lapsed rule adapts to the customer: weekly visitors lapse after more 
 
 ### Stretch, only after the 7:30 checkpoint passes
 
-Priority order: estimated monthly revenue at risk (Dev 1 calculation, Dev 2 display); favorite-item/flavor summary using existing records (Dev 2); prefilled usual-order Google Form link (Dev 3, only if form field IDs are known). Stop stretch at 7:50.
+Original sprint stretch priorities were estimated monthly revenue at risk and a favorite-item/flavor summary using existing records. The later authorized order-ahead extension uses the built-in form; the proposed Google Form prefill is obsolete.
 
 Revenue recovered and linked Google Sheet responses are deferred beyond tonight's 100-minute build. They need additional evidence/integration. Unknown recovery is not zero revenue. Do not imply the demo has measured actual customer return or chain switching.
 
 ### Out of scope
 
-Custom cart, pickup slots, kitchen queue, real authentication, payments, POS, SMS/email delivery, native mobile apps, reviews, referrals, multiple stores, and analytics beyond the stretch list. The Google Form covers preordering.
+Kitchen capacity scheduling, real authentication, online payments, POS, SMS/email delivery, native mobile apps, reviews, referrals, multiple stores, and analytics beyond the stretch list. The built-in form records pickup requests; payment remains at the counter.
 
 ## Data and team
 
@@ -108,6 +108,6 @@ At 7:30, if the loop fails, **all three developers** fix it within their ownersh
 | Slow or failed LLM | Four-second timeout; per-customer cached draft; visibly label cached preview |
 | Late integration | Frozen contracts and seed at commit-0; all branch merges by 7:25 |
 | Wi-Fi fails or isolates phone | Laptop hotspot; two browser windows if phone networking fails; screen recording of the successful loop |
-| No form URL yet | Dev 3 obtains/creates a published form early; do not pass off a placeholder as working order ahead |
+| Order submission fails | Keep the selections and request ID for a safe retry; show confirmed orders in both the hub and dashboard |
 | Scope creep | Core loop gate at 7:30, stretch stop at 7:50, hard freeze 8:10 |
 | JSON persistence limitations | One process and atomic writes; no public deployment or multi-instance setup tonight |

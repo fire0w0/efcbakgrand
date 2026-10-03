@@ -6,6 +6,8 @@ The customer hub now contains a menu and pickup form. The server persists `preor
 
 Assumptions: empty repository at start; installed Node 20.18.2; three developers; single-machine demo; no cloud account required; no production security claims. CONTRACTS.md owns every shared shape.
 
+Current status: the three feature branches are merged at `97a9258`; the empty-repo assumptions describe the initial setup. See [NEXT_STEPS.md](NEXT_STEPS.md) for the current feature audit and planned follow-up. API key and Google Form configuration are delegated; no configuration changes are made by this planning update.
+
 ## Stack and hosting decision
 
 Use React 19 + TypeScript, Vite 6, Express 5, and a JSON file database through Node's filesystem. One package, one lockfile, one server port, built-in `fetch`, plain CSS, Node's test runner. No ORM, Docker, UI framework, client router, state library, SDK, or external database. Exact resolved versions are committed in package.json and package-lock.json; every teammate uses `npm ci`.
@@ -33,7 +35,7 @@ src/
     CustomerApp.tsx            default export, no props
 server/                       DEV 1 ONLY
   index.ts                    HTTP host and frontend middleware
-  app.ts                      routes; read handlers + write stubs
+  app.ts                      read/write routes and validation
   config.ts                   server env parsing
   domain.ts                   summary and metric calculations
   store.ts                    seed bootstrap and atomic file storage
@@ -90,12 +92,12 @@ All variables are server-only, loaded from ignored `.env` when it exists using N
 
 ## AI implementation handoff
 
-Dev 1 implements a server-only `fetch` to OpenAI's Responses API (`POST https://api.openai.com/v1/responses`) with bearer key, model, task instructions, customer-history input, `store: false`, and a small output limit. Extract message text from output message content, validate it, and use the same stored Offer response as a cached draft. Use an AbortController; no streaming or SDK dependency. Treat customer/order text as data, not instructions. Never send phone numbers to the model. Restrict the benefit to the contracted free topping. The [GPT-4.1 mini model documentation](https://developers.openai.com/api/docs/models/gpt-4.1-mini) lists Responses support. Verify access with the team's own key before rehearsal; model access is not assumed.
+The merged server uses server-only `fetch` to OpenAI's Responses API (`POST https://api.openai.com/v1/responses`) with bearer key, model, task instructions, customer-history input, `store: false`, and a small output limit. The current implementation asks the model to choose one of a set of grounded candidate messages, then validates exact membership; it does not permit unrestricted composition. It uses a four-second deadline and cached fallback, with no streaming or SDK dependency. Customer text is treated as data; phone numbers are excluded. The benefit stays a free topping. The [GPT-4.1 mini model documentation](https://developers.openai.com/api/docs/models/gpt-4.1-mini) lists Responses support. The delegated integration owner verifies access with the team's own key before rehearsal; model access is not assumed.
 
 No key or provider failure is a normal cached path, not an API error to the customer. Display `source` so the demo does not misrepresent cached text as a fresh model response. No paid API call is needed to test the scaffold.
 
-## Commit-0 completion boundary
+## Current completion boundary
 
-Working now: app mounts both owned entry points; read routes serve deterministic data; lapsed flags and core metrics calculate; runtime file bootstraps; all mutation paths exist and return typed 501 errors; types generate from CONTRACTS.md.
+Implemented at `97a9258`: dashboard list/detail/offer workflow; phone entry, card, offers, and polling; read/write endpoints; atomic runtime persistence; lapsed flags and core metrics; optional provider path and cached fallback; generated contract types. The original mutation stubs have been replaced. The preceding verification passed type/contract checks and 65 automated tests; this is not a full browser/phone acceptance result.
 
-Still assigned to developers: backend writes and AI calls; complete dashboard; phone join/reward/offer UI; poll/refetch behavior; actual form link; end-to-end acceptance. The scaffold is deliberately not represented as a finished application.
+Remaining: delegated key/form integration and its live verification, the cached-template UI mismatch, dashboard freshness, copy cleanup, full real-device acceptance, and optional estimated revenue at risk. See NEXT_STEPS.md. Recovered revenue remains null. Runtime data, configuration, and code are unchanged by that planning document.

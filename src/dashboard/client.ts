@@ -1,7 +1,7 @@
 import { api } from '../shared/api';
 import type {
   ConfigResponse, CustomerDetailResponse, CustomerListQuery, CustomerListResponse, MenuResponse,
-  MetricsResponse, OfferEditRequest, OfferResponse, StampResponse,
+  MetricsResponse, OfferEditRequest, OfferResponse, StampResponse, RewardRedeemResponse,
 } from '../shared/contracts';
 import { createMockClient } from './mock';
 
@@ -14,6 +14,7 @@ export interface DashboardClient {
   customer(id: string): Promise<CustomerDetailResponse>;
   metrics(): Promise<MetricsResponse>;
   addStamp(customerId: string): Promise<StampResponse>;
+  redeemReward(customerId: string): Promise<RewardRedeemResponse>;
   draftOffer(customerId: string): Promise<OfferResponse>;
   saveOffer(offerId: string, message: string): Promise<OfferResponse>;
   approveOffer(offerId: string): Promise<OfferResponse>;
@@ -36,6 +37,7 @@ export const realClient: DashboardClient = {
   customer: id => api(`/customers/${segment(id)}`),
   metrics: () => api('/metrics'),
   addStamp: id => api(`/customers/${segment(id)}/stamps`, empty),
+  redeemReward: id => api(`/customers/${segment(id)}/rewards/redeem`, empty),
   draftOffer: id => api(`/customers/${segment(id)}/offers/draft`, empty),
   saveOffer: (id, message) => api(`/offers/${segment(id)}`, {
     method: 'PATCH', body: JSON.stringify({ message } satisfies OfferEditRequest),

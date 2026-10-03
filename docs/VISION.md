@@ -60,7 +60,7 @@ The highlighted step is the retention hook: noticing a regular's absence relativ
 
 | Core feature | Behavior | Done when |
 | --- | --- | --- |
-| Digital reward card | Phone entry, ten stamps, redeem action; Grandma adds a stamp as mocked checkout | Grandma adds the tenth stamp, the phone updates within two seconds, and redeem resets to zero |
+| Digital reward card | Phone entry and ten-stamp progress; Grandma adds stamps and confirms redemption at the counter | Grandma adds the tenth stamp, the phone shows reward-ready text without a redeem button, and Grandma's confirmed redemption resets both views to zero |
 | Grandma's dashboard | Sortable visits, favorite item, last visit, total spend; per-customer order history | All 50 seeded customers can be browsed and detail pages load |
 | Lapsed-regular flag | Three or more visits and absence greater than twice usual gap | Seed produces exactly six believable flagged regulars; occasional visitors are not misclassified |
 | AI-drafted offer | History-based warm message and free-topping offer; editable approval; cached fallback | Grandma changes a word, approves, and that exact message appears only in the right customer's hub |

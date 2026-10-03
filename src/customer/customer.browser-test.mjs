@@ -10,9 +10,9 @@ import test from 'node:test';
 
 const require = createRequire(import.meta.url);
 const enabled = process.env.BAKERIA_CUSTOMER_TESTS === '1';
-const base = process.env.BAKERIA_CUSTOMER_TEST_URL ?? 'http://localhost:3003';
+const base = process.env.BAKERIA_CUSTOMER_TEST_URL ?? 'http://localhost:3000';
 
-test('customer hub: real scaffold reads and isolated simulated interactions', { skip: !enabled }, async t => {
+test('customer hub: real API reads and isolated simulated interactions', { skip: !enabled }, async t => {
   const { chromium } = require(process.env.BAKERIA_PLAYWRIGHT_MODULE ?? 'playwright');
   const browser = await chromium.launch({ channel: 'msedge', headless: true });
   const outputs = join(tmpdir(), 'bakeria-dev3-browser');
@@ -24,13 +24,20 @@ test('customer hub: real scaffold reads and isolated simulated interactions', { 
     const runtimeErrors = [];
     page.on('pageerror', error => runtimeErrors.push(error.message));
     await t.test('real API: Maya, draft privacy, remembered selection, switch and missing IDs', async () => {
+      const hubResponse = await page.request.get(`${base}/api/hub/cus_025`);
+      assert.equal(hubResponse.ok(), true);
+      const liveHub = await hubResponse.json();
       await page.goto(`${base}/hub/cus_025`);
       await page.getByRole('heading', { name: 'Hello, Maya.' }).waitFor();
-      assert.equal(await page.locator('.stamp-filled').count(), 9);
+      assert.equal(await page.locator('.stamp-filled').count(), liveHub.customer.stamps);
       assert.equal(await page.locator('.stamp').count(), 10);
-      assert.equal(await page.getByRole('button', { name: 'Redeem reward' }).isDisabled(), true);
-      assert.equal(await page.locator('.offer-card').count(), 0);
-      assert.equal(await page.getByText('The order form hasn’t been connected yet.').count(), 1);
+      assert.equal(await page.getByRole('button', { name: 'Redeem reward', exact: true }).count(), 0);
+      await page.getByText(liveHub.customer.stamps === liveHub.reward_target
+        ? 'Your reward is ready. Ask Grandma to redeem it at the counter.'
+        : 'Grandma adds a stamp when you stop by.', { exact: true }).waitFor();
+      assert.equal(await page.locator('.offer-card').count(), liveHub.offers.filter(offer => offer.customer_id === 'cus_025' && ['approved', 'redeemed'].includes(offer.status)).length);
+      assert.equal(await page.getByRole('button', { name: 'Start an order', exact: true }).getAttribute('aria-expanded'), 'false');
+      assert.equal(await page.getByLabel('Pickup name', { exact: true }).isVisible(), false);
       assert.equal(await page.evaluate(() => localStorage.getItem('bakeria.customerId')), 'cus_025');
       assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
       await page.screenshot({ path: join(outputs, 'maya-360.png'), fullPage: true });
@@ -44,8 +51,8 @@ test('customer hub: real scaffold reads and isolated simulated interactions', { 
       await page.getByText('Enter a 10-digit phone number, or include +1.').waitFor();
       await page.getByLabel('Phone number', { exact: true }).fill('(519) 555-0125');
       await page.getByRole('button', { name: 'Find my card' }).click();
-      await page.getByRole('alert').filter({ hasText: 'Commit-0 stub' }).waitFor();
-      assert.equal(await page.locator('.reward-card').count(), 0);
+      await page.getByRole('heading', { name: 'Hello, Maya.' }).waitFor();
+      assert.equal(await page.locator('.reward-card').count(), 1);
       await page.goto(`${base}/hub/unknown-customer`);
       await page.getByLabel('Phone number', { exact: true }).waitFor();
       assert.equal(await page.evaluate(() => localStorage.getItem('bakeria.customerId')), null);
@@ -59,21 +66,23 @@ test('customer hub: real scaffold reads and isolated simulated interactions', { 
     console.log('Following cases use a test-only mocked API, cloned from the frozen seed.');
     const context = await browser.newContext({ viewport: { width: 360, height: 800 } });
     const phone = await context.newPage();
+    const simulatedErrors = [];
+    phone.on('pageerror', error => simulatedErrors.push(error.message));
     const db = structuredClone(seed);
     let hubReads = 0;
     let joins = 0;
     let rewardWrites = 0;
     let offerWrites = 0;
-    let failReward = false;
+    let failOffer = false;
     let delayedRead = null;
     let releaseRead = null;
-    let delayedReward = false;
-    let releaseReward = null;
-    let formUrl = null;
+    let delayedOffer = false;
+    let releaseOffer = null;
     await phone.route('**/api/**', async route => {
       const request = route.request();
       const path = new URL(request.url()).pathname;
       const respond = (body, status = 200) => route.fulfill({ status, json: body });
+      if (path === '/api/menu') return respond({ menu_items: db.menu_items });
       if (path === '/api/hub/join') {
         joins += 1;
         const raw = request.postDataJSON().phone.replace(/[\s().-]/g, '');
@@ -93,7 +102,7 @@ test('customer hub: real scaffold reads and isolated simulated interactions', { 
         const customer = db.customers.find(customer => customer.id === id);
         if (!customer) return respond({ error: { code: 'NOT_FOUND', message: 'Customer not found' } }, 404);
         // Include drafts and another customer's offer to test the defensive UI filter.
-        const snapshot = structuredClone({ customer, reward_target: 10, order_form_url: formUrl, offers: db.offers });
+        const snapshot = structuredClone({ customer, reward_target: 10, order_form_url: null, offers: db.offers, preorders: [], as_of: '2026-10-02T22:30:00.000Z' });
         if (delayedRead === id) {
           delayedRead = null;
           await new Promise(resolve => { releaseRead = resolve; });
@@ -102,16 +111,13 @@ test('customer hub: real scaffold reads and isolated simulated interactions', { 
       }
       if (path.endsWith('/rewards/redeem')) {
         rewardWrites += 1;
-        if (failReward) return respond({ error: { code: 'CONFLICT', message: 'The reward is not ready. Try refreshing your card.' } }, 409);
-        const id = path.split('/')[3];
-        const customer = db.customers.find(customer => customer.id === id);
-        if (delayedReward) await new Promise(resolve => { releaseReward = resolve; });
-        customer.stamps = 0;
-        return respond({ customer, redeemed: true });
+        return respond({ error: { code: 'CONFLICT', message: 'Rewards are redeemed by Grandma at the counter.' } }, 409);
       }
       if (path.startsWith('/api/offers/') && path.endsWith('/redeem')) {
         offerWrites += 1;
+        if (failOffer) return respond({ error: { code: 'CONFLICT', message: 'The offer could not be redeemed. Please try again.' } }, 409);
         const offer = db.offers.find(offer => offer.id === path.split('/')[3]);
+        if (delayedOffer) await new Promise(resolve => { releaseOffer = resolve; });
         offer.status = 'redeemed';
         await new Promise(resolve => setTimeout(resolve, 100));
         return respond({ offer });
@@ -139,39 +145,46 @@ test('customer hub: real scaffold reads and isolated simulated interactions', { 
       await phone.getByRole('heading', { name: 'Hello, New.' }).waitFor();
     });
 
-    await t.test('polling reaches ten stamps, filters drafts and other customers, and keeps mutation errors', async () => {
+    await t.test('polling shows a ready reward and staff reset, without customer reward actions', async () => {
       await phone.goto(`${base}/hub/cus_025`);
       await phone.getByRole('heading', { name: 'Hello, Maya.' }).waitFor();
       assert.equal(await phone.locator('.offer-card').count(), 0);
+      assert.equal(await phone.getByRole('button', { name: 'Redeem reward', exact: true }).count(), 0);
       const maya = db.customers.find(customer => customer.id === 'cus_025');
       maya.stamps = 10;
-      await phone.getByRole('button', { name: 'Redeem reward' }).waitFor({ state: 'visible' });
-      await phone.waitForFunction(() => document.querySelector('.reward-progress strong')?.textContent.startsWith('10'), undefined, { timeout: 2600 });
-      const reward = phone.getByRole('button', { name: 'Redeem reward' });
-      assert.equal(await reward.isEnabled(), true);
-      failReward = true;
-      await reward.click();
-      await phone.getByRole('alert').filter({ hasText: 'The reward is not ready' }).waitFor();
-      await phone.waitForTimeout(2200);
-      assert.equal(await phone.getByRole('alert').filter({ hasText: 'The reward is not ready' }).count(), 1);
-      failReward = false;
-      await reward.dblclick();
-      await phone.waitForFunction(() => document.querySelector('.reward-progress strong')?.textContent.startsWith('0'));
-      assert.equal(rewardWrites, 2);
-      assert.equal(await reward.isDisabled(), true);
+      await phone.getByText('Your reward is ready. Ask Grandma to redeem it at the counter.', { exact: true }).waitFor({ timeout: 4000 });
+      assert.equal(await phone.locator('.stamp-filled').count(), 10);
+      assert.equal(await phone.getByRole('button', { name: 'Redeem reward', exact: true }).count(), 0);
+      // Simulate Grandma's successful redemption in the test-only store.
+      maya.stamps = 0;
+      await phone.waitForFunction(() => document.querySelector('.reward-progress strong')?.textContent.startsWith('0'), undefined, { timeout: 4000 });
+      await phone.getByText('Grandma adds a stamp when you stop by.', { exact: true }).waitFor();
+      assert.equal(rewardWrites, 0);
       await phone.reload();
       await phone.getByRole('heading', { name: 'Hello, Maya.' }).waitFor();
       assert.equal(await phone.locator('.stamp-filled').count(), 0);
+      assert.equal(await phone.getByRole('button', { name: 'Redeem reward', exact: true }).count(), 0);
+    });
+
+    await t.test('offers filter drafts and other customers, preserve errors during polling, and retry once', async () => {
+      const maya = db.customers.find(customer => customer.id === 'cus_025');
       const offer = db.offers.find(offer => offer.customer_id === 'cus_025');
       offer.message = 'Maya, your Strawberry Cloud Parfait is waiting. Enjoy a free topping with your next parfait!';
       offer.status = 'approved';
       db.offers.find(offer => offer.customer_id === 'cus_026').status = 'approved';
       await phone.getByText(offer.message, { exact: true }).waitFor({ timeout: 2600 });
       assert.equal(await phone.locator('.offer-card').count(), 1);
+      failOffer = true;
+      await phone.getByRole('button', { name: 'Redeem offer (demo)' }).click();
+      await phone.getByRole('alert').filter({ hasText: 'The offer could not be redeemed' }).waitFor();
+      await phone.waitForTimeout(2200);
+      assert.equal(await phone.getByRole('alert').filter({ hasText: 'The offer could not be redeemed' }).count(), 1);
+      failOffer = false;
       await phone.getByRole('button', { name: 'Redeem offer (demo)' }).dblclick();
       await phone.getByText('Used · simulated redemption', { exact: true }).waitFor();
-      assert.equal(offerWrites, 1);
+      assert.equal(offerWrites, 2);
       assert.equal(maya.stamps, 0);
+      assert.equal(rewardWrites, 0);
       assert.equal(await phone.getByRole('button', { name: 'Redeem offer (demo)' }).count(), 0);
     });
 
@@ -201,7 +214,7 @@ test('customer hub: real scaffold reads and isolated simulated interactions', { 
       assert.equal(hubReads, beforeSwitch);
     });
 
-    await t.test('late reads and redemptions never overwrite another customer', async () => {
+    await t.test('late reads and offer redemptions never overwrite another customer', async () => {
       delayedRead = 'cus_025';
       await phone.goto(`${base}/hub/cus_025`);
       await phone.waitForFunction(() => document.body.textContent.includes('Loading your card and offers.'));
@@ -212,36 +225,48 @@ test('customer hub: real scaffold reads and isolated simulated interactions', { 
       releaseRead();
       await phone.waitForTimeout(200);
       assert.equal(await phone.getByRole('heading', { name: 'Hello, Maya.' }).count(), 0);
-      const maya = db.customers.find(customer => customer.id === 'cus_025');
-      maya.stamps = 10;
+      const offer = db.offers.find(offer => offer.customer_id === 'cus_025');
+      offer.status = 'approved';
       await phone.goto(`${base}/hub/cus_025`);
       await phone.getByRole('heading', { name: 'Hello, Maya.' }).waitFor();
-      delayedReward = true;
-      await phone.getByRole('button', { name: 'Redeem reward' }).click();
+      delayedOffer = true;
+      await phone.getByRole('button', { name: 'Redeem offer (demo)' }).click();
       await phone.getByRole('button', { name: 'Redeeming…' }).waitFor();
       await phone.getByRole('button', { name: 'Switch customer' }).click();
       await phone.getByLabel('Phone number', { exact: true }).fill('5195550126');
       await phone.getByRole('button', { name: 'Find my card' }).click();
       await phone.getByRole('heading', { name: 'Hello, Daniel.' }).waitFor();
-      releaseReward();
+      releaseOffer();
       await phone.waitForTimeout(200);
       assert.equal(await phone.getByRole('heading', { name: 'Hello, Maya.' }).count(), 0);
-      assert.equal(await phone.getByText('Reward redeemed in the demo. Your card is ready to start again.').count(), 0);
-      delayedReward = false;
+      assert.equal(await phone.getByText('Offer marked used in the demo. No payment was made or stamps added.', { exact: true }).count(), 0);
+      assert.equal(rewardWrites, 0);
+      delayedOffer = false;
     });
 
-    await t.test('server-configured form anchor and long content fit 360px', async () => {
-      formUrl = 'https://docs.google.com/forms/d/e/test-only/viewform';
+    await t.test('built-in order form expands, preserves details when hidden, and fits 360px with long content', async () => {
       db.offers.find(offer => offer.customer_id === 'cus_025').message = 'A'.repeat(280);
       await phone.goto(`${base}/hub/cus_025`);
-      const anchor = phone.getByRole('link', { name: 'Order ahead' });
-      await anchor.waitFor();
-      assert.equal(await anchor.getAttribute('href'), formUrl);
-      assert.equal(await anchor.getAttribute('target'), '_blank');
-      assert.equal(await anchor.getAttribute('rel'), 'noopener noreferrer');
+      const expand = phone.getByRole('button', { name: 'Start an order', exact: true });
+      await expand.waitFor();
+      assert.equal(await expand.getAttribute('aria-expanded'), 'false');
+      assert.equal(await phone.getByLabel('Pickup name', { exact: true }).isVisible(), false);
+      await expand.click();
+      const quantity = phone.getByLabel(`Quantity for ${seed.menu_items[0].name}`, { exact: true });
+      await quantity.selectOption('2');
+      await phone.getByLabel('Pickup note (optional)', { exact: true }).fill('Please pack spoons.');
+      await phone.getByRole('button', { name: 'Hide order form', exact: true }).click();
+      assert.equal(await quantity.isVisible(), false);
+      assert.equal(await phone.getByRole('heading', { name: 'Your orders', exact: true }).isVisible(), true);
+      await expand.click();
+      assert.equal(await quantity.inputValue(), '2');
+      assert.equal(await phone.getByLabel('Pickup note (optional)', { exact: true }).inputValue(), 'Please pack spoons.');
+      assert.equal(await phone.getByRole('link', { name: 'Order ahead', exact: true }).count(), 0);
       assert.equal(await phone.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
       await phone.screenshot({ path: join(outputs, 'offers-360-test-only.png'), fullPage: true });
     });
+    assert.equal(rewardWrites, 0);
+    assert.deepEqual(simulatedErrors, []);
     await context.close();
     console.log(`Screenshots: ${outputs}`);
   } finally { await browser.close(); }

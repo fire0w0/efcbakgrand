@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { api } from '../shared/api';
-import type { HubResponse, JoinRequest, JoinResponse, OfferResponse, RewardRedeemResponse } from '../shared/contracts';
+import type { HubResponse, JoinRequest, JoinResponse, OfferResponse } from '../shared/contracts';
 
 const CUSTOMER_KEY = 'bakeria.customerId';
 
@@ -134,34 +134,27 @@ export function useCustomerHub() {
     }
   }
 
-  async function redeem(kind: 'reward' | 'offer', offerId?: string) {
+  async function redeemOffer(offerId: string) {
     const id = activeId.current;
     if (!id || actionLock.current || !hub || hub.customer.id !== id) return;
-    if (kind === 'reward' && hub.customer.stamps !== hub.reward_target) return;
-    if (kind === 'offer' && !hub.offers.some(offer => offer.id === offerId && offer.customer_id === id && offer.status === 'approved')) return;
+    if (!hub.offers.some(offer => offer.id === offerId && offer.customer_id === id && offer.status === 'approved')) return;
     actionLock.current = true;
     const currentSession = session.current;
-    setBusy(kind === 'reward' ? 'reward' : `offer:${offerId}`);
+    setBusy(`offer:${offerId}`);
     setActionError(''); setNotice(''); readController.current?.abort();
     try {
-      if (kind === 'reward') {
-        const response = await api<RewardRedeemResponse>(`/customers/${encodeURIComponent(id)}/rewards/redeem`, { method: 'POST', body: '{}' });
-        if (session.current !== currentSession) return;
-        setHub(previous => previous?.customer.id === id ? { ...previous, customer: response.customer } : previous);
-      } else {
-        const response = await api<OfferResponse>(`/offers/${encodeURIComponent(offerId!)}/redeem`, { method: 'POST', body: '{}' });
-        if (session.current !== currentSession) return;
-        setHub(previous => previous?.customer.id === id ? { ...previous, offers: previous.offers.map(offer => offer.id === response.offer.id ? response.offer : offer) } : previous);
-      }
-      setNotice(kind === 'reward' ? 'Reward redeemed in the demo. Your card is ready to start again.' : 'Offer marked used in the demo. No payment was made or stamps added.');
+      const response = await api<OfferResponse>(`/offers/${encodeURIComponent(offerId)}/redeem`, { method: 'POST', body: '{}' });
+      if (session.current !== currentSession) return;
+      setHub(previous => previous?.customer.id === id ? { ...previous, offers: previous.offers.map(offer => offer.id === response.offer.id ? response.offer : offer) } : previous);
+      setNotice('Offer marked used in the demo. No payment was made or stamps added.');
       await refreshRef.current();
     } catch (cause) {
-      if (session.current === currentSession) setActionError(`Couldn’t redeem ${kind === 'reward' ? 'your reward' : 'this offer'}. ${message(cause)}`);
+      if (session.current === currentSession) setActionError(`Couldn’t redeem this offer. ${message(cause)}`);
     } finally {
       if (session.current === currentSession) { actionLock.current = false; setBusy(null); }
     }
   }
 
   return { customerId, hub, loading, busy, error: actionError || readError, notice, join, switchCustomer,
-    refresh: () => refreshRef.current(), redeemReward: () => redeem('reward'), redeemOffer: (id: string) => redeem('offer', id) };
+    refresh: () => refreshRef.current(), redeemOffer };
 }

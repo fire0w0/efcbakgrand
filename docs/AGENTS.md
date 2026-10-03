@@ -2,6 +2,8 @@
 
 ## Authorized order-ahead update — October 2
 
+Follow-up authorization: move stamp-card reward redemption to Grandma's customer detail screen and remove it from the customer hub. The user explicitly chose a UI-only demo control change, with no staff PIN or authentication. Preserve the server's ten-stamp requirement and reset-to-zero behavior.
+
 The user explicitly suspended developer ownership restrictions for the built-in order-ahead form and Grandma's Orders tab. This feature may update the backend, customer UI, dashboard, shared contracts and supporting docs together. The built-in flow supersedes the Google Form requirement and the original prohibition on order-ahead UI/API work. Generate shared types from CONTRACTS.md; preserve existing runtime data, the seed, and all other core behaviors. The original instructions below describe the initial sprint and still apply where they do not conflict with this authorized extension.
 
 Assumptions: three agents, one per developer, in independent checkouts; commit-0 is the shared base; these rules govern the entire repository through the root AGENTS.md pointer.

@@ -76,6 +76,9 @@
 .customer .order-card h2 { font-size: 28px; }
 .customer .order-card > div > p:last-child { margin-top: 10px; color: #5c6652; line-height: 1.5; font-size: 14px; }
 .customer .order-card .primary-button { margin-top: 22px; }
+.customer .order-form-toggle { display: flex; justify-content: space-between; align-items: center; gap: 16px; width: 100%; min-height: 48px; margin-top: 20px; padding: 12px 16px; border: 1px solid #879577; border-radius: 2px; background: #435239; color: #fffdf8; font-family: 'Trebuchet MS', sans-serif; font-size: 14px; font-weight: 700; text-align: left; }
+.customer .order-form-toggle:hover:not(:disabled) { background: #34422c; }
+.customer .order-form-toggle span { font-size: 23px; font-weight: 400; line-height: 1; }
 .customer .order-unavailable { border-top: 1px solid #bcc2ab; margin-top: 20px; padding-top: 16px; }
 .customer .order-unavailable > span { font-family: 'Trebuchet MS', sans-serif; font-size: 13px; font-weight: 700; }
 .customer .order-card .order-unavailable p { margin-top: 6px; font-size: 12px; }

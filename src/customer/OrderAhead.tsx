@@ -66,6 +66,7 @@ function OrderReceipt({ order, menu, asOf }: { order: Preorder; menu: MenuItem[]
 export default function OrderAhead({ hub, onPlaced }: { hub: HubResponse; onPlaced: () => Promise<boolean> }) {
   const customerId = hub.customer.id;
   const [restored] = useState(() => pendingOrder(customerId));
+  const [formOpen, setFormOpen] = useState(Boolean(restored));
   const slots = useMemo(() => pickupSlots(hub.as_of), [hub.as_of]);
   const [menu, setMenu] = useState<MenuItem[]>([]);
   const [menuLoading, setMenuLoading] = useState(true);
@@ -153,6 +154,10 @@ export default function OrderAhead({ hub, onPlaced }: { hub: HubResponse; onPlac
 
   return <section className="order-card order-ahead" aria-labelledby="order-title">
     <div><p className="eyebrow">Something to look forward to</p><h2 id="order-title">Order ahead</h2><p>Pick your treats and send your order straight to Grandma.</p></div>
+    <button type="button" className="order-form-toggle" aria-expanded={formOpen} aria-controls="order-ahead-form" disabled={busy} onClick={() => setFormOpen(open => !open)}>
+      {formOpen ? 'Hide order form' : 'Start an order'}<span aria-hidden="true">{formOpen ? '−' : '+'}</span>
+    </button>
+    <div id="order-ahead-form" hidden={!formOpen}>
     <p className="order-demo-clock">Demo clock: {pickupFormat.format(new Date(hub.as_of))}, {new Date(hub.as_of).getUTCFullYear()} · Toronto</p>
     <p className="input-hint">Request pickup from 15 minutes to 7 days ahead. Pay at the counter. Pickup times are requests, subject to bakery availability.</p>
     {menuLoading ? <p className="order-loading" role="status">Loading the menu…</p> : menuError ? <div className="customer-error" role="alert"><p>{menuError}</p><button className="text-button" onClick={() => setMenuAttempt(value => value + 1)}>Retry menu</button></div> : !menu.length ? <p className="order-loading">The menu is being prepared. Please check back soon.</p> : <form onSubmit={placeOrder} aria-busy={busy}>
@@ -175,6 +180,7 @@ export default function OrderAhead({ hub, onPlaced }: { hub: HubResponse; onPlac
       {error && <p className="customer-error" role="alert">{error}</p>}
       <button className="primary-button" type="submit" disabled={busy}>{busy ? 'Placing your order…' : 'Place order'}<span aria-hidden="true">↗</span></button>
     </form>}
+    </div>
     {receipt && <div className="order-success" role="status"><strong>Your order is in!</strong><p>Pickup for {receipt.pickup_name} on {pickupFormat.format(new Date(receipt.pickup_at))} Toronto. {money(receipt.total_cents)} CAD{receipt.status === 'scheduled' ? ', payable at pickup.' : ` · ${receipt.status}.`}</p></div>}
     <div className="your-orders"><h3>Your orders</h3><div className="customer-order-tabs" role="group" aria-label="Your orders filter"><button type="button" aria-pressed={view === 'upcoming'} onClick={() => setView('upcoming')}>Upcoming ({upcoming.length})</button><button type="button" aria-pressed={view === 'past'} onClick={() => setView('past')}>Past ({past.length})</button></div>
       {displayed.length ? displayed.map(order => <OrderReceipt key={order.id} order={order} menu={menu} asOf={hub.as_of} />) : <p className="orders-empty">{view === 'upcoming' ? 'No upcoming orders yet. Your next sweet stop starts above.' : 'No past orders yet. Collected and cancelled orders will appear here.'}</p>}

@@ -140,3 +140,18 @@
   .dashboard .dashboard-order-filters button { flex: 1; }
   .dashboard .dashboard-pickup-heading { align-items: flex-start; }
 }
+
+/* Brand pass: Grandma's Bakeria palette from the design canvas */
+.dashboard { font-family: var(--font-body); }
+.dashboard h1, .dashboard h2, .dashboard .dashboard-card-value { font-family: var(--font-display); font-weight: 400; color: var(--brown); }
+.dashboard h1 { font-size: 2.6rem; }
+.dashboard button { border: 2px solid var(--brown); border-radius: 999px; color: var(--brown); background: var(--paper); box-shadow: 0 3px 0 var(--brown); font-weight: 800; }
+.dashboard button:active:not(:disabled) { transform: translateY(2px); box-shadow: 0 1px 0 var(--brown); }
+.dashboard .dashboard-primary, .dashboard .dashboard-order-filters button[aria-pressed="true"] { background: var(--brown); border-color: var(--brown); color: var(--paper); box-shadow: 0 3px 0 var(--brown-dark); }
+.dashboard .dashboard-sort { border: 0; box-shadow: none; background: none; border-radius: 0; }
+.dashboard-card, .dashboard-facts div, .dashboard-pickup-card, .dashboard-offer, .dashboard-editor, .dashboard-table { border: 2.5px solid var(--brown); border-radius: 16px; box-shadow: var(--shadow-card); background: var(--paper); }
+.dashboard-table { border-radius: 12px; overflow: hidden; }
+.dashboard-table thead th { background: var(--tan-light); font-style: italic; letter-spacing: .08em; text-transform: uppercase; font-size: .75rem; }
+.dashboard-badge { font-weight: 800; }
+.dashboard-badge-lapsed, .dashboard-banner-lapsed { background: var(--yellow); border-color: var(--brown); }
+.dashboard-mock { background: var(--yellow); border-color: var(--brown); }

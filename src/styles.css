@@ -1,9 +1,65 @@
-:root { font-family: Georgia, serif; color: #35271f; background: #fff8ec; font-synthesis: none; }
+/* Grandma's Bakeria shared baseline: design tokens from the Claude Design canvas, brand bar, and
+   a few small shared primitives (prefixed ui-/brand-). Feature styles live in each app folder. */
+:root {
+  --cream: #F6E9D7; --cream-blob: #EFDCC3; --paper: #FFF8EC; --paper-warm: #FFF1DA; --paper-soft: #FBF1E2;
+  --ink: #3E1A14; --brown: #6B2A24; --brown-dark: #521F1A; --muted: #6E4A3E;
+  --tan: #C9A27E; --tan-light: #F3DCC6; --tan-line: #E3CDB6; --tan-stripe: #B98F69;
+  --red: #D9453A; --red-deep: #A33A2E; --yellow: #FBE3A6; --yellow-deep: #F8D47A; --yellow-pop: #F6DE6A;
+  --green: #9CC48A; --green-light: #BFDDB0; --green-dark: #4F7A47;
+  --blue: #A9C6E0; --blue-light: #B5CFE6; --purple: #CDBBE6; --purple-light: #E4D8F3; --pink: #F2A7B5; --pink-light: #F2B8B5;
+  --font-body: 'Nunito', 'Trebuchet MS', sans-serif;
+  --font-display: 'Chewy', 'Comic Sans MS', cursive;
+  --font-hand: 'Caveat', 'Segoe Print', 'Bradley Hand', cursive;
+  --shadow-card: 0 5px 0 rgba(107, 42, 36, 0.2);
+  --shadow-card-soft: 0 3px 0 rgba(107, 42, 36, 0.18);
+  --shadow-button: 0 5px 0 var(--brown-dark);
+  --blobs: radial-gradient(52px 34px at 60px 70px, var(--cream-blob) 97%, transparent 100%),
+    radial-gradient(30px 44px at 220px 190px, var(--cream-blob) 97%, transparent 100%),
+    radial-gradient(26px at 130px 300px, var(--cream-blob) 97%, transparent 100%),
+    radial-gradient(40px 24px at 300px 40px, var(--cream-blob) 97%, transparent 100%);
+  font-family: var(--font-body);
+  color: var(--ink);
+  background-color: var(--cream);
+  background-image: var(--blobs);
+  background-size: 340px 360px;
+  font-synthesis: none;
+}
 * { box-sizing: border-box; }
-body { margin: 0; }
+body { margin: 0; min-height: 100vh; }
 button, input, textarea, select { font: inherit; }
 button, a { touch-action: manipulation; }
 button { cursor: pointer; }
 button:disabled { cursor: default; }
-a { color: #713c2b; }
-:focus-visible { outline: 3px solid #b65a2a; outline-offset: 3px; }
+a { color: var(--brown); }
+a:hover { color: var(--ink); }
+:focus-visible { outline: 3px solid var(--red); outline-offset: 3px; }
+
+/* Brand bar */
+.brand-bar { background: var(--brown); color: var(--paper); padding: 10px 28px 4px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.brand-home { display: flex; align-items: center; gap: 12px; min-height: 48px; color: var(--paper); text-decoration: none; }
+.brand-home:hover { color: var(--paper); }
+.brand-words { display: flex; flex-direction: column; gap: 3px; }
+.brand-name { font-family: var(--font-display); font-size: 30px; line-height: 1; letter-spacing: .5px; }
+.brand-tag { font-style: italic; font-weight: 800; font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--tan-light); }
+.brand-nav { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
+.brand-icon-button, .brand-nav a { position: relative; display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; padding: 0 6px; background: none; border: 0; border-radius: 12px; color: var(--paper); text-decoration: none; gap: 6px; }
+.brand-icon-button:hover, .brand-nav a:hover { background: rgba(255, 248, 236, 0.12); color: var(--paper); }
+.brand-nav a[aria-current="page"] { background: var(--paper); color: var(--brown); font-family: var(--font-display); font-size: 18px; letter-spacing: .5px; padding: 0 14px; }
+.brand-nav a[aria-current="page"]:hover { color: var(--brown); }
+.brand-nav-label { font-family: var(--font-display); font-size: 18px; letter-spacing: .5px; }
+.brand-scallop { width: 100%; }
+
+/* Small shared primitives */
+.ui-eyebrow { margin: 0; font-style: italic; font-weight: 800; font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--muted); }
+.ui-tag { display: inline-flex; align-items: center; gap: 8px; padding: 4px 12px; border-radius: 6px; background: var(--brown); color: var(--paper); font-style: italic; font-weight: 800; font-size: 12px; letter-spacing: 2.5px; text-transform: uppercase; }
+.ui-tag-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--tan-light); }
+.ui-pill { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 4px 20px; border: 0; border-radius: 999px; background: var(--brown); color: var(--paper); box-shadow: 0 4px 0 var(--brown-dark); font-family: var(--font-display); font-size: 19px; letter-spacing: .5px; }
+.ui-pill:hover:not(:disabled) { background: #7d3229; }
+.ui-pill:active:not(:disabled) { transform: translateY(2px); box-shadow: 0 2px 0 var(--brown-dark); }
+.ui-pill:disabled { opacity: .55; box-shadow: none; }
+.ui-pill-big { min-height: 54px; font-size: 26px; letter-spacing: 1px; box-shadow: var(--shadow-button); }
+.ui-pill-quiet { background: var(--paper); color: var(--brown); border: 2.5px solid var(--brown); box-shadow: 0 3px 0 var(--brown); }
+.ui-pill-quiet:hover:not(:disabled) { background: var(--paper-warm); }
+.ui-card { background: var(--paper); border: 2.5px solid var(--brown); border-radius: 16px; box-shadow: var(--shadow-card); }
+.ui-hand { font-family: var(--font-hand); font-weight: 700; color: var(--brown); }
+.ui-display { font-family: var(--font-display); font-weight: 400; color: var(--brown); }

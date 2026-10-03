@@ -1,16 +1,18 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import type { FormEvent } from 'react';
 import { api } from '../shared/api';
-import type { HubResponse, MenuItem, MenuResponse, Preorder, PreorderRequest, PreorderResponse } from '../shared/contracts';
+import { Icon, Scallop } from '../shared/brand';
+import type { HubResponse, MenuItem, Preorder, PreorderRequest, PreorderResponse } from '../shared/contracts';
+import { dateFormat, dateKeyFormat, message, money, pickupFormat, timeFormat } from './format';
+import Treat, { treatFor } from './Treat';
 
-const TORONTO = 'America/Toronto';
-const money = (cents: number) => new Intl.NumberFormat('en-CA', { style: 'currency', currency: 'CAD' }).format(cents / 100);
-const pickupFormat = new Intl.DateTimeFormat('en-CA', { timeZone: TORONTO, month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' });
-const dateFormat = new Intl.DateTimeFormat('en-CA', { timeZone: TORONTO, weekday: 'short', month: 'short', day: 'numeric' });
-const timeFormat = new Intl.DateTimeFormat('en-CA', { timeZone: TORONTO, hour: 'numeric', minute: '2-digit' });
-const dateKeyFormat = new Intl.DateTimeFormat('en-CA', { timeZone: TORONTO, year: 'numeric', month: '2-digit', day: '2-digit' });
+// The "Preorder" card from the design canvas, keeping the original order-ahead guarantees:
+// one idempotent request ID per attempt, a pending copy in sessionStorage so a lost response
+// can be confirmed by the next hub poll, and a 15-minute-to-7-day Toronto pickup window.
+
+export interface OrderPrefill { key: number; items: Record<string, number>; }
+
 const storageKey = (customerId: string) => `bakeria.pendingPreorder.${customerId}`;
-const message = (cause: unknown) => cause instanceof Error ? cause.message : 'Please try again.';
 
 function requestId() {
   // getRandomValues also works when a phone opens the local demo over HTTP.
@@ -51,27 +53,20 @@ function pickupSlots(asOf: string) {
   return slots;
 }
 
-function OrderReceipt({ order, menu, asOf }: { order: Preorder; menu: MenuItem[]; asOf: string }) {
-  const overdue = order.status === 'scheduled' && Date.parse(order.pickup_at) < Date.parse(asOf);
-  return <article className="preorder-receipt">
-    <div className="preorder-receipt-heading"><strong>{pickupFormat.format(new Date(order.pickup_at))}</strong><span className={`preorder-status preorder-${order.status}`}>{order.status === 'scheduled' ? overdue ? 'Awaiting pickup · overdue' : 'Scheduled' : order.status === 'collected' ? 'Collected' : 'Cancelled'}</span></div>
-    <p className="input-hint">Toronto · for {order.pickup_name}</p>
-    <ul>{order.items.map(item => <li key={item.menu_item_id}><span>{item.quantity} × {menu.find(menuItem => menuItem.id === item.menu_item_id)?.name ?? 'Menu item'}</span><span>{money(item.quantity * item.unit_price_cents)}</span></li>)}</ul>
-    {order.note && <p className="preorder-note">{order.note}</p>}
-    <div className="preorder-receipt-total"><span>{order.status === 'scheduled' ? 'Pay at pickup' : 'Order total'} · CAD</span><strong>{money(order.total_cents)}</strong></div>
-    <p className="preorder-reference">Order {order.id}</p>
-  </article>;
+interface Props {
+  hub: HubResponse;
+  menu: MenuItem[];
+  menuError: string;
+  onRetryMenu: () => void;
+  prefill: OrderPrefill | null;
+  onPrefillApplied: () => void;
+  onPlaced: () => Promise<boolean>;
 }
 
-export default function OrderAhead({ hub, onPlaced }: { hub: HubResponse; onPlaced: () => Promise<boolean> }) {
+export default function OrderAhead({ hub, menu, menuError, onRetryMenu, prefill, onPrefillApplied, onPlaced }: Props) {
   const customerId = hub.customer.id;
   const [restored] = useState(() => pendingOrder(customerId));
-  const [formOpen, setFormOpen] = useState(Boolean(restored));
   const slots = useMemo(() => pickupSlots(hub.as_of), [hub.as_of]);
-  const [menu, setMenu] = useState<MenuItem[]>([]);
-  const [menuLoading, setMenuLoading] = useState(true);
-  const [menuError, setMenuError] = useState('');
-  const [menuAttempt, setMenuAttempt] = useState(0);
   const [quantities, setQuantities] = useState<Record<string, number>>(() => Object.fromEntries((restored?.items ?? []).map(item => [item.menu_item_id, item.quantity])));
   const [pickupName, setPickupName] = useState(restored?.pickup_name ?? (hub.customer.name === 'New friend' ? '' : hub.customer.name));
   const [pickupAt, setPickupAt] = useState(restored?.pickup_at ?? slots[0]?.iso ?? '');
@@ -79,27 +74,16 @@ export default function OrderAhead({ hub, onPlaced }: { hub: HubResponse; onPlac
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState('');
   const [receipt, setReceipt] = useState<Preorder | null>(null);
-  const [view, setView] = useState<'upcoming' | 'past'>('upcoming');
   const pending = useRef<PreorderRequest | null>(restored);
   const lock = useRef(false);
   const mounted = useRef(true);
   const writeController = useRef<AbortController | null>(null);
+  const section = useRef<HTMLElement>(null);
 
   useEffect(() => {
     mounted.current = true;
     return () => { mounted.current = false; writeController.current?.abort(); };
   }, []);
-
-  useEffect(() => {
-    const controller = new AbortController();
-    setMenuLoading(true); setMenuError('');
-    void api<MenuResponse>('/menu', { signal: controller.signal }).then(response => {
-      if (!controller.signal.aborted) setMenu(response.menu_items);
-    }).catch(cause => {
-      if (!controller.signal.aborted) setMenuError(`Couldn’t load the menu. ${message(cause)}`);
-    }).finally(() => { if (!controller.signal.aborted) setMenuLoading(false); });
-    return () => controller.abort();
-  }, [menuAttempt]);
 
   // A poll can confirm an order whose POST response was lost, including after reload.
   useEffect(() => {
@@ -110,25 +94,34 @@ export default function OrderAhead({ hub, onPlaced }: { hub: HubResponse; onPlac
     }
   }, [hub.preorders, customerId]);
 
+  // "Add" on the menu board or "Reorder" on an old order fills the form and scrolls to it.
+  useEffect(() => {
+    if (!prefill) return;
+    changed();
+    setQuantities(prefill.items);
+    section.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    onPrefillApplied();
+  }, [prefill?.key]); // eslint-disable-line react-hooks/exhaustive-deps
+
   const selectedItems = menu.filter(item => (quantities[item.id] ?? 0) > 0);
   const total = selectedItems.reduce((sum, item) => sum + item.price_cents * quantities[item.id], 0);
   const selectedDay = pickupAt ? dateKeyFormat.format(new Date(pickupAt)) : slots[0]?.day ?? '';
   const days = slots.filter((slot, index) => index === 0 || slot.day !== slots[index - 1].day);
   const daySlots = slots.filter(slot => slot.day === selectedDay);
-  const customerOrders = (hub.preorders ?? []).filter(order => order.customer_id === customerId);
-  const orders = receipt && !customerOrders.some(order => order.id === receipt.id) ? [receipt, ...customerOrders] : customerOrders;
-  const upcoming = orders.filter(order => order.status === 'scheduled').sort((a, b) => a.pickup_at.localeCompare(b.pickup_at));
-  const past = orders.filter(order => order.status !== 'scheduled');
-  const displayed = view === 'upcoming' ? upcoming : past;
 
   function changed() {
     pending.current = null; storePending(customerId, null); setError(''); setReceipt(null);
   }
 
+  function adjust(id: string, delta: number) {
+    changed();
+    setQuantities(previous => ({ ...previous, [id]: Math.max(0, Math.min(20, (previous[id] ?? 0) + delta)) }));
+  }
+
   async function placeOrder(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     if (lock.current) return;
-    if (!selectedItems.length) { setError('Choose at least one treat before placing your order.'); return; }
+    if (!selectedItems.length) { setError('Pick at least one treat first.'); return; }
     if (!pickupName.trim()) { setError('Add a name so Grandma knows who is picking up.'); return; }
     if (!slots.some(slot => slot.iso === pickupAt) && !pending.current) { setError('Choose an available pickup date and time.'); return; }
     const request: PreorderRequest = pending.current ?? {
@@ -142,48 +135,68 @@ export default function OrderAhead({ hub, onPlaced }: { hub: HubResponse; onPlac
     try {
       const response = await api<PreorderResponse>(`/customers/${encodeURIComponent(customerId)}/preorders`, { method: 'POST', body: JSON.stringify(request), signal: controller.signal });
       if (!mounted.current || controller.signal.aborted) return;
-      setReceipt(response.preorder); setView(response.preorder.status === 'scheduled' ? 'upcoming' : 'past'); setQuantities({}); setNote('');
+      setReceipt(response.preorder); setQuantities({}); setNote('');
       pending.current = null; storePending(customerId, null);
       await onPlaced();
     } catch (cause) {
-      if (mounted.current && !controller.signal.aborted && pending.current?.request_id === request.request_id) setError(`We couldn’t confirm your order. ${message(cause)} Retry without changing the form to safely check the same order.`);
+      if (mounted.current && !controller.signal.aborted && pending.current?.request_id === request.request_id) {
+        setError(`We couldn’t confirm your order. ${message(cause)} Press ORDER again without changing anything to safely retry the same order.`);
+      }
     } finally {
       if (mounted.current) { lock.current = false; setBusy(false); }
     }
   }
 
-  return <section className="order-card order-ahead" aria-labelledby="order-title">
-    <div><p className="eyebrow">Something to look forward to</p><h2 id="order-title">Order ahead</h2><p>Pick your treats and send your order straight to Grandma.</p></div>
-    <button type="button" className="order-form-toggle" aria-expanded={formOpen} aria-controls="order-ahead-form" disabled={busy} onClick={() => setFormOpen(open => !open)}>
-      {formOpen ? 'Hide order form' : 'Start an order'}<span aria-hidden="true">{formOpen ? '−' : '+'}</span>
-    </button>
-    <div id="order-ahead-form" hidden={!formOpen}>
-    <p className="order-demo-clock">Demo clock: {pickupFormat.format(new Date(hub.as_of))}, {new Date(hub.as_of).getUTCFullYear()} · Toronto</p>
-    <p className="input-hint">Request pickup from 15 minutes to 7 days ahead. Pay at the counter. Pickup times are requests, subject to bakery availability.</p>
-    {menuLoading ? <p className="order-loading" role="status">Loading the menu…</p> : menuError ? <div className="customer-error" role="alert"><p>{menuError}</p><button className="text-button" onClick={() => setMenuAttempt(value => value + 1)}>Retry menu</button></div> : !menu.length ? <p className="order-loading">The menu is being prepared. Please check back soon.</p> : <form onSubmit={placeOrder} aria-busy={busy}>
-      <fieldset disabled={busy} className="order-menu"><legend>Choose your treats</legend>{menu.map(item => <div className="order-menu-item" key={item.id}>
-        <label htmlFor={`quantity-${item.id}`}><span>{item.name}</span><span className="order-item-price">{money(item.price_cents)} CAD each</span></label>
-        <select id={`quantity-${item.id}`} aria-label={`Quantity for ${item.name}`} value={quantities[item.id] ?? 0} onChange={event => { changed(); setQuantities(previous => ({ ...previous, [item.id]: Number(event.target.value) })); }}>
-          {Array.from({ length: 21 }, (_, quantity) => <option key={quantity} value={quantity}>{quantity}</option>)}
-        </select>
-      </div>)}</fieldset>
-      <fieldset disabled={busy} className="order-details"><legend>Pickup details</legend>
-        <label htmlFor="pickup-name">Pickup name</label><input id="pickup-name" autoComplete="name" value={pickupName} maxLength={80} required onChange={event => { changed(); setPickupName(event.target.value); }} />
-        <div className="pickup-fields"><div><label htmlFor="pickup-date">Pickup date</label><select id="pickup-date" value={selectedDay} onChange={event => { changed(); setPickupAt(slots.find(slot => slot.day === event.target.value)!.iso); }}>{days.map(day => <option key={day.day} value={day.day}>{day.dateLabel}</option>)}</select></div>
-          <div><label htmlFor="pickup-time">Pickup time</label><select id="pickup-time" value={pickupAt} onChange={event => { changed(); setPickupAt(event.target.value); }}>{daySlots.map(slot => <option key={slot.iso} value={slot.iso}>{slot.timeLabel}</option>)}</select></div></div>
-        <p className="input-hint">All pickup times are in Toronto.</p>
-        <label htmlFor="pickup-note">Pickup note (optional)</label><textarea id="pickup-note" rows={3} maxLength={300} value={note} placeholder="Anything Grandma should know?" onChange={event => { changed(); setNote(event.target.value); }} />
-        <p className="input-hint">{note.length}/300 characters</p>
-      </fieldset>
-      <div className="order-total"><span>Total · CAD</span><strong>{money(total)}</strong></div>
-      <p className="input-hint">Payment is at pickup. Placing an order does not use offers or add stamps.</p>
-      {error && <p className="customer-error" role="alert">{error}</p>}
-      <button className="primary-button" type="submit" disabled={busy}>{busy ? 'Placing your order…' : 'Place order'}<span aria-hidden="true">↗</span></button>
-    </form>}
-    </div>
-    {receipt && <div className="order-success" role="status"><strong>Your order is in!</strong><p>Pickup for {receipt.pickup_name} on {pickupFormat.format(new Date(receipt.pickup_at))} Toronto. {money(receipt.total_cents)} CAD{receipt.status === 'scheduled' ? ', payable at pickup.' : ` · ${receipt.status}.`}</p></div>}
-    <div className="your-orders"><h3>Your orders</h3><div className="customer-order-tabs" role="group" aria-label="Your orders filter"><button type="button" aria-pressed={view === 'upcoming'} onClick={() => setView('upcoming')}>Upcoming ({upcoming.length})</button><button type="button" aria-pressed={view === 'past'} onClick={() => setView('past')}>Past ({past.length})</button></div>
-      {displayed.length ? displayed.map(order => <OrderReceipt key={order.id} order={order} menu={menu} asOf={hub.as_of} />) : <p className="orders-empty">{view === 'upcoming' ? 'No upcoming orders yet. Your next sweet stop starts above.' : 'No past orders yet. Collected and cancelled orders will appear here.'}</p>}
+  return <section className="preorder" aria-labelledby="preorder-heading" ref={section}>
+    <div className="preorder-bar"><h2 id="preorder-heading">Preorder</h2><span className="preorder-bar-note">Pay at pickup</span></div>
+    <Scallop size={14} />
+    <div className="preorder-body">
+      {menuError ? <div className="customer-error" role="alert"><p>Couldn’t load the menu. {menuError}</p><button type="button" className="text-button" onClick={onRetryMenu}>Retry</button></div>
+        : menu.length === 0 ? <p className="preorder-loading" role="status">Loading the menu…</p>
+        : <form onSubmit={placeOrder} aria-busy={busy}>
+          <fieldset className="preorder-items" disabled={busy}>
+            <legend className="hand-label">What are you craving?</legend>
+            {menu.map(item => {
+              const quantity = quantities[item.id] ?? 0;
+              return <div className={`preorder-item${quantity ? ' preorder-item-on' : ''}`} key={item.id}>
+                <Treat kind={treatFor(item)} size={44} />
+                <div className="preorder-item-name"><span>{item.name}</span><span className="preorder-item-price">{money(item.price_cents)}</span></div>
+                <div className="qty" role="group" aria-label={`Quantity of ${item.name}`}>
+                  <button type="button" aria-label={`One fewer ${item.name}`} onClick={() => adjust(item.id, -1)} disabled={quantity === 0}><Icon name="minus" size={16} strokeWidth={3} /></button>
+                  <span className="qty-value" aria-live="polite">{quantity}</span>
+                  <button type="button" aria-label={`One more ${item.name}`} onClick={() => adjust(item.id, 1)} disabled={quantity >= 20}><Icon name="plus" size={16} strokeWidth={3} /></button>
+                </div>
+              </div>;
+            })}
+          </fieldset>
+          <fieldset className="preorder-details" disabled={busy}>
+            <legend className="visually-hidden">Pickup details</legend>
+            <label className="hand-label" htmlFor="pickup-name">Who’s picking up?</label>
+            <input id="pickup-name" className="preorder-line" autoComplete="name" value={pickupName} maxLength={80} required onChange={event => { changed(); setPickupName(event.target.value); }} />
+            <p className="hand-label" id="pickup-when-label">When will you pop by?</p>
+            <div className="preorder-when" role="group" aria-labelledby="pickup-when-label">
+              <div className="preorder-select">
+                <select aria-label="Pickup date" value={selectedDay} onChange={event => { changed(); setPickupAt(slots.find(slot => slot.day === event.target.value)!.iso); }}>
+                  {days.map(day => <option key={day.day} value={day.day}>{day.dateLabel}</option>)}
+                </select>
+                <Icon name="chevron" size={18} strokeWidth={2.5} />
+              </div>
+              <div className="preorder-select">
+                <select aria-label="Pickup time" value={pickupAt} onChange={event => { changed(); setPickupAt(event.target.value); }}>
+                  {daySlots.map(slot => <option key={slot.iso} value={slot.iso}>{slot.timeLabel}</option>)}
+                </select>
+                <Icon name="chevron" size={18} strokeWidth={2.5} />
+              </div>
+            </div>
+            <label className="hand-label" htmlFor="pickup-note">Anything Grandma should know?</label>
+            <input id="pickup-note" className="preorder-line" type="text" maxLength={300} value={note} placeholder="optional" onChange={event => { changed(); setNote(event.target.value); }} />
+          </fieldset>
+          <div className="preorder-total"><span>Total · pay at pickup</span><strong>{money(total)}</strong></div>
+          {error && <p className="customer-error" role="alert">{error}</p>}
+          <button className="ui-pill ui-pill-big preorder-submit" type="submit" disabled={busy}><Icon name="cart" size={24} />{busy ? 'SENDING…' : 'ORDER'}</button>
+          {receipt && <p role="status" className="preorder-sent ui-hand">Sent! Grandma will have it ready {pickupFormat.format(new Date(receipt.pickup_at))}. {money(receipt.total_cents)} at pickup.</p>}
+        </form>}
+      <p className="preorder-fine">Demo clock {pickupFormat.format(new Date(hub.as_of))}, Toronto. Pickups from 15 minutes to 7 days ahead; times are requests, nothing is paid online.</p>
     </div>
   </section>;
 }

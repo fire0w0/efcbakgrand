@@ -85,14 +85,19 @@ All variables are server-only, loaded from ignored `.env` when it exists using N
 | `PORT` | `3000` | Single HTTP port; Dev 1 |
 | `DATA_FILE` | `data/runtime.json` | Per-checkout mutable JSON; Dev 1; never point at seed |
 | `DEMO_NOW` | `2026-10-02T22:30:00.000Z` | Fixed 6:30 PM Toronto calculation time; keep consistent |
-| `ORDER_FORM_URL` | empty | Legacy external-form setting, retained for API compatibility; the current hub uses its built-in form |
+| `ORDER_FORM_URL` | empty | Published HTTPS Google Form URL; Dev 3 supplies, Dev 1 sets on demo machine |
+| `AI_PROVIDER` | auto | `openai` or `gemini`; blank picks Gemini when only `GEMINI_API_KEY` is set, otherwise OpenAI |
 | `OPENAI_API_KEY` | empty | Optional real generation; Dev 1 only; never commit or expose to browser |
 | `OPENAI_MODEL` | `gpt-4.1-mini` | Fixed small text-model choice for short drafts |
+| `GEMINI_API_KEY` | empty | Optional free-tier generation via Google AI Studio; same secrecy rules as the OpenAI key |
+| `GEMINI_MODEL` | `gemini-2.5-flash` | Gemini model for short drafts; thinking is disabled in the request |
 | `AI_TIMEOUT_MS` | `4000` | Abort deadline; fallback on timeout |
 
 ## AI implementation handoff
 
 The merged server uses server-only `fetch` to OpenAI's Responses API (`POST https://api.openai.com/v1/responses`) with bearer key, model, task instructions, customer-history input, `store: false`, and a small output limit. The current implementation asks the model to choose one of a set of grounded candidate messages, then validates exact membership; it does not permit unrestricted composition. It uses a four-second deadline and cached fallback, with no streaming or SDK dependency. Customer text is treated as data; phone numbers are excluded. The benefit stays a free topping. The [GPT-4.1 mini model documentation](https://developers.openai.com/api/docs/models/gpt-4.1-mini) lists Responses support. The delegated integration owner verifies access with the team's own key before rehearsal; model access is not assumed.
+
+A second provider, Google Gemini, is wired the same way: server-only `fetch` to `POST https://generativelanguage.googleapis.com/v1beta/models/{GEMINI_MODEL}:generateContent` with the key in the `x-goog-api-key` header, the same instructions as a `system_instruction`, the same JSON facts and candidate list as the user turn, `thinkingBudget: 0`, and a small output limit. The free AI Studio tier allows roughly ten requests per minute, which is plenty for one demo. The response is accepted only when `finishReason` is `STOP` and the text is an exact grounded candidate; anything else is the cached path.
 
 No key or provider failure is a normal cached path, not an API error to the customer. Display `source` so the demo does not misrepresent cached text as a fresh model response. No paid API call is needed to test the scaffold.
 

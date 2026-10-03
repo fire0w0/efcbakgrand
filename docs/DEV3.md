@@ -12,7 +12,7 @@ Do not edit `src/dashboard/**`, `src/shared/**`, `src/main.tsx`, global CSS, ser
 
 1. Phone-entry screen: telephone keyboard, input label, clear error and loading states. POST join and remember the returned ID with the contracted localStorage key. Phone alone is sufficient; do not invent a password, OTP, mandatory name, or auth service.
 2. Restore remembered customer on reload, and support explicit `/hub/:id` demo links. If a remembered ID is missing after reset, clear it and return to phone entry. Add Switch customer to clear local identity. Never show one customer's stale card while loading another.
-3. Reward card with ten stamp positions, progress text, and redeem enabled only at ten. POST reward redemption, then refetch. Show waiting/error states and disable duplicate clicks.
+3. Reward card with ten stamp positions and read-only progress text. At ten stamps, direct the customer to Grandma at the counter. Per the later user request, the customer hub has no reward-redemption button or mutation handler; Grandma confirms it from her dashboard. Keep polling to reflect the reset.
 4. Fetch the hub immediately, every two seconds while visible, and on focus. Clean up intervals/event listeners. Prevent late responses for a previous customer from overwriting the active view. Show only server-provided approved/redeemed offers; drafts never appear.
 5. Add approved offer display and a clearly simulated Redeem offer action. Refetch after redemption. This does not charge money or add stamps.
 6. Add Order ahead as a normal anchor with `target="_blank"` and `rel="noopener noreferrer"`, using server configuration. If URL is null, show unconfigured state; do not invent a URL.
@@ -28,7 +28,7 @@ GET config and hub reads already work. For phone-join and reward interactions be
 - [ ] Enter `(519) 555-0125` and reach Maya's card; refresh keeps that selection; Switch customer works.
 - [ ] Alternate formatting resolves to the same account; invalid phone displays an error; a new valid phone joins without a password.
 - [ ] Nine starting stamps become ten within two seconds after Grandma adds one, without manually reloading the phone.
-- [ ] Reward redemption resets to zero, survives refresh, and is unavailable below ten.
+- [ ] Grandma's reward redemption resets the phone card to zero and survives refresh; the customer hub never exposes a reward-redemption control.
 - [ ] Grandma's newly approved edited message appears within two seconds and never leaks to another customer's hub.
 - [ ] Drafts stay hidden; redeemed offers are marked used; the simulated action does not claim a payment occurred.
 - [ ] Visibility changes and customer switching do not leak timers or stale responses.

@@ -73,6 +73,12 @@ export function createMockClient(real: DashboardClient): DashboardClient {
       stamps.set(id, current + 1);
       return { customer: toCustomer(patch(customer)) };
     },
+    redeemReward: async id => {
+      const { customer } = await real.customer(id);
+      if ((stamps.get(id) ?? customer.stamps) !== 10) return fail('Ten stamps are required to redeem a reward');
+      stamps.set(id, 0);
+      return { customer: toCustomer(patch(customer)), redeemed: true };
+    },
     draftOffer: async customerId => {
       const detail = await real.customer(customerId);
       const cached = detail.offers.find(offer => offer.source === 'cached');

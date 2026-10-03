@@ -26,7 +26,7 @@ Read endpoints already work on commit-0. Use them from day one. For mutation-onl
 - [ ] All 50 customers are browsable; every detail loads without missing item labels.
 - [ ] Each required sort works; lapsed-only view contains `cus_025` through `cus_030` after reset.
 - [ ] Maya shows Strawberry Cloud Parfait, weekly history, a 22-day absence, and nine starting stamps.
-- [ ] Add stamp updates the server and displayed stamp count; failures are visible and retryable.
+- [ ] Add stamp updates the server and displayed stamp count; failures are visible and retryable. Per the later user request, Grandma also confirms reward redemption at ten stamps; both views reset to zero and duplicate clicks are blocked. Customers cannot redeem from their hub. This remains a UI-only demo without a staff PIN.
 - [ ] Grandma drafts, edits one word, saves and approves; drafts and approved states are visibly distinct.
 - [ ] Cached fallback is visibly labeled; failed save cannot approve stale text.
 - [ ] Core metrics render correctly, including zero values; unknown dollar figures stay hidden.

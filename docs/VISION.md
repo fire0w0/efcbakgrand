@@ -2,6 +2,8 @@
 
 October 2, 2026 · Derek Chen
 
+Post-merge update: all three feature branches are merged at `97a9258`. The next-work priorities and UI copy policy are in [NEXT_STEPS.md](NEXT_STEPS.md). API key and Google Form integration are delegated. The original build schedule below is retained as sprint context, not current completion evidence.
+
 ## Assumptions and decisions
 
 - Three developers, each with an independent coding agent and checkout. Commit-0 and contracts are prepared by 6:00 PM; 6:00–6:30 is independent setup; implementation is 6:30–8:10 PM. All times are Toronto (EDT).
@@ -10,6 +12,7 @@ October 2, 2026 · Derek Chen
 - The core retention loop is mandatory. The dollar figure is a post-7:30 stretch: estimated monthly revenue at risk. Recovered revenue stays unknown without attributable sales. We will not claim simulated offer approvals are money recovered.
 - Dev 3 supplies a real, published Google Form link; it has not been provided with this brief. Order ahead cannot pass acceptance until that URL works from a phone.
 - Reward target is ten stamps. All money is CAD. Demo time is fixed for repeatable seed behavior. Technical shapes live only in [CONTRACTS.md](CONTRACTS.md).
+- UI principle for the next iteration: every visible sentence should help identify a state, make a decision, or take an action. Remove developer commentary and repeated slogans. Keep useful dates, offer terms, reward value, errors, and one compact demo disclosure; detailed limitations belong in its expandable explanation and the pitch. See the exact copy inventory in NEXT_STEPS.md.
 
 ## Overview
 

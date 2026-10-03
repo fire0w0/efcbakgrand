@@ -62,7 +62,9 @@
 .customer .hub-banner-sticker { position: absolute; top: 16px; right: 18px; width: 104px; height: 104px; border-radius: 50%; background: var(--brown); color: var(--paper); display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 0 0 4px var(--yellow), 0 0 0 7px var(--brown), 0 7px 0 3px rgba(82, 31, 26, 0.3); transform: rotate(12deg); }
 .customer .hub-banner-offer .hub-banner-sticker { box-shadow: 0 0 0 4px var(--purple-light), 0 0 0 7px var(--brown), 0 7px 0 3px rgba(82, 31, 26, 0.3); }
 .customer .hub-sticker-top { font-size: 22px; line-height: .9; color: var(--paper); }
-.customer .hub-sticker-big { font-size: 30px; line-height: 1; color: var(--paper); }
+.customer .hub-sticker-big { font-size: 30px; line-height: 1; color: var(--paper); white-space: nowrap; }
+.customer .hub-banner-offer .hub-sticker-top { font-size: 20px; }
+.customer .hub-banner-offer .hub-sticker-big { font-size: 22px; letter-spacing: .3px; }
 .customer .hub-banner-copy { position: relative; max-width: 58%; display: flex; flex-direction: column; gap: 4px; }
 .customer .hub-banner-copy .ui-eyebrow { color: var(--brown); font-size: 12px; }
 .customer .hub-banner-title { font-size: 30px; line-height: 1.02; }
@@ -205,6 +207,8 @@
   .customer .hub-banner-sticker { width: 86px; height: 86px; top: 10px; right: 10px; }
   .customer .hub-sticker-top { font-size: 18px; }
   .customer .hub-sticker-big { font-size: 24px; }
+  .customer .hub-banner-offer .hub-sticker-top { font-size: 16px; }
+  .customer .hub-banner-offer .hub-sticker-big { font-size: 18px; }
   .customer .menu-board { border-width: 8px; }
   .customer .menu-title { font-size: 46px; }
   .customer .stamp-grid-big { gap: 12px; padding: 12px 18px 14px; }

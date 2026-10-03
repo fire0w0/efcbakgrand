@@ -1,5 +1,9 @@
 # Implementation plan: simplify the UI and complete the retention workflow
 
+## Later product decisions
+
+The user subsequently authorized built-in order ahead and Grandma's Orders tab, a collapsible customer order form, and moving stamp-card reward redemption to Grandma's customer detail screen. These implemented changes supersede this plan's older Google Form, preorder-deferral, and customer reward-button instructions. Keep the customer reward card read-only: Grandma confirms redemption at ten stamps. The user explicitly chose demo access without a staff PIN. Apply the remaining cleanup without reverting these behaviors; the audit below describes its original `97a9258` baseline.
+
 ## Implementation brief
 
 Implement the changes in this document against current merged main. Deliver a clearer customer hub and Grandma dashboard, fix the cached-template editing bug, refresh dashboard state after customer actions, and add the existing revenue-at-risk metric after the core loop passes. Use the work packages, exact copy replacements, and acceptance criteria below as the implementation specification.
